@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity"
+        >
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+            <ImageView
+                    android:id="@+id/ivLogo"
+                    android:layout_width="180dp"
+                    android:layout_height="180dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/imounilogo"
+                    />
+
+            <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    />
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="40dp"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:id="@+id/tvSignup"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="28sp"
+                        android:textStyle="bold"
+                        android:text="@string/login_tvSignup"
+                        />
+
+                <TextView
+                        android:id="@+id/tvNome"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/signup_tvNome"
+                        android:textSize="20sp"
+                        />
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                    <EditText
+                            android:id="@+id/etprimeiroNome"
+                            android:layout_width="165dp"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/signup_hPrimeiro"
+                            android:textSize="18sp"
+                            />
+
+                    <EditText
+                            android:id="@+id/etultimoNome"
+                            android:layout_width="165dp"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/signup_hUltimo"
+                            android:textSize="18sp"
+                            />
+
+                </LinearLayout>
+
+                <TextView
+                        android:id="@+id/tvEmail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/signup_tvEmail"
+                        android:textSize="20sp"
+                        />
+
+                <EditText
+                        android:id="@+id/etEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textEmailAddress"
+                        android:textSize="18sp"
+                        />
+
+                <TextView
+                        android:id="@+id/tvTelemovel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/signup_tvTelemovel"
+                        android:textSize="20sp"
+                        />
+
+                <EditText
+                        android:id="@+id/etTelemovel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:textSize="18sp"
+                        />
+
+                <TextView
+                        android:id="@+id/tvGenero"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/signup_tvGenero"
+                        android:textSize="20sp"
+                        />
+
+                <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:orientation="horizontal">
+
+                <CheckBox
+                        android:id="@+id/cbGenero_mas"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/signup_cbGenero_mas"
+                        android:textSize="18sp"
+                        />
+
+                    <Space
+                            android:layout_width="20dp"
+                            android:layout_height="match_parent"
+                            />
+
+                <CheckBox
+                        android:id="@+id/cbGenero_fem"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/signup_cbGenero_fem"
+                        android:textSize="18sp"
+                        />
+
+                </LinearLayout>
+
+                <TextView
+                        android:id="@+id/tvNascimento"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/signup_tvNascimento"
+                        android:textSize="20sp"
+                        />
+
+                <DatePicker
+                        android:id="@+id/dpNascimento"
+                        android:datePickerMode="spinner"
+                        android:calendarViewShown="false"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        />
+
+                <TextView
+                        android:id="@+id/tvPassword"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/signup_tvPassword"
+                        android:textSize="20sp"
+                        />
+
+                <EditText
+                        android:id="@+id/etPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword"
+                        android:textSize="18sp"
+                        />
+
+                <TextView
+                        android:id="@+id/tvTipo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/signup_tvTipo"
+                        android:textSize="20sp"
+                        />
+
+                <Spinner
+                        android:id="@+id/spTipo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        />
+
+                <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        />
+
+                <Button
+                        android:id="@+id/btnSignup"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="40dp"
+                        android:text="@string/signup_btnSignup"
+                        android:textSize="20sp"
+                        />
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,51 @@
+<resources>
+    <string name="app_name">ImoUni</string>
+
+    <string name="login_tvTitulo">Login</string>
+    <string name="login_tvEmail">Email</string>
+    <string name="login_tvPassword">Password</string>
+    <string name="login_btnLogin">Login</string>
+    <string name="login_tvForgotPassword">Forgot Password?</string>
+    <string name="login_tvSignup">Sign up</string>
+
+    <string name="signup_tvTitulo">Signup</string>
+    <string name="signup_tvNome">Nome Completo</string>
+    <string name="signup_hPrimeiro">Primeiro nome</string>
+    <string name="signup_hUltimo">Ultimo nome</string>
+    <string name="signup_tvEmail">Email</string>
+    <string name="signup_tvTelemovel">Número de telemóvel</string>
+    <string name="signup_tvGenero">Género</string>
+    <string name="signup_cbGenero_mas">Masculino</string>
+    <string name="signup_cbGenero_fem">Feminino</string>
+    <string name="signup_tvNascimento">Data de nascimento</string>
+    <string name="signup_tvPassword">Password</string>
+    <string name="signup_tvTipo">Tipo de utilizador</string>
+    <string name="signup_btnSignup">Signup</string>
+
+    <string-array name="spTipo">
+        <item>Estudante</item>
+        <item>Senhorio</item>
+    </string-array>
+
+    <string name="editprofile_tvTitulo">Edit profile</string>
+    <string name="editprofile_tvEmail">Email</string>
+    <string name="editprofile_tvTelemovel">Número de telemóvel</string>
+    <string name="editprofile_tvPassword">Password</string>
+    <string name="editprofile_tvHorario">Horário de visitas</string>
+    <string name="editprofile_btnAdd">Adiconar</string>
+    <string name="editprofile_btnSave">Save</string>
+
+    <string name="addhorario_tvTitulo">Adicionar disponibilidade</string>
+    <string name="addhorario_tvDia">Dia de semana</string>
+    <string name="addhorario_tvInicio">Hora de inicio</string>
+    <string name="addhorario_tvFim">Hora de fim</string>
+    <string name="addhorario_btnAdd">Adiconar</string>
+
+    <string-array name="spDia">
+        <item>Seg</item>
+        <item>Ter</item>
+        <item>Qua</item>
+        <item>Qui</item>
+        <item>Sex</item>
+    </string-array>
+</resources>

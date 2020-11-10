@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity"
+        >
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+            <ImageView
+                    android:id="@+id/ivLogo"
+                    android:layout_width="180dp"
+                    android:layout_height="180dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/imounilogo"
+                    />
+
+            <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    />
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="40dp"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:id="@+id/tvSignup"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="28sp"
+                        android:textStyle="bold"
+                        android:text="@string/editprofile_tvTitulo"
+                        />
+
+                <TextView
+                        android:id="@+id/tvEmail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/editprofile_tvEmail"
+                        android:textSize="20sp"
+                        />
+
+                <EditText
+                        android:id="@+id/etEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textEmailAddress"
+                        android:textSize="18sp"
+                        />
+
+                <TextView
+                        android:id="@+id/tvTelemovel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/editprofile_tvTelemovel"
+                        android:textSize="20sp"
+                        />
+
+                <EditText
+                        android:id="@+id/etTelemovel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:textSize="18sp"
+                        />
+
+                <TextView
+                        android:id="@+id/tvPassword"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/editprofile_tvPassword"
+                        android:textSize="20sp"
+                        />
+
+                <EditText
+                        android:id="@+id/etPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword"
+                        android:textSize="18sp"
+                        />
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                    <TextView
+                            android:id="@+id/tvHorario"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="@string/editprofile_tvHorario"
+                            android:textSize="20sp"
+                            />
+
+                    <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10dp">
+                        
+                        <TextView
+                                android:id="@+id/tvHorario1"
+                                android:layout_width="140dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:text="Dia: Segunda"
+                                android:textSize="18sp"
+                                />
+
+                        <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                            <TextView
+                                    android:id="@+id/tvInicio1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Inicio: 16:20"
+                                    android:textSize="18sp"
+                                    />
+
+                            <Space
+                                    android:layout_width="20dp"
+                                    android:layout_height="match_parent"
+                                    />
+
+                            <TextView
+                                    android:id="@+id/tvFim1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Fim: 19:40"
+                                    android:textSize="18sp"
+                                    />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <Button
+                            android:id="@+id/btnAddHorario"
+                            android:layout_gravity="center"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingHorizontal="40dp"
+                            android:text="@string/editprofile_btnAdd"
+                            android:textSize="18sp"
+                            />
+
+                </LinearLayout>
+
+                <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        />
+
+                <Button
+                        android:id="@+id/btnSignup"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="40dp"
+                        android:text="@string/editprofile_btnSave"
+                        android:textSize="20sp"
+                        />
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
