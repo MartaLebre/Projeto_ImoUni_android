@@ -1,13 +1,20 @@
 <resources>
     <string name="app_name">ImoUni</string>
 
+    <!-- alterar -->
+    <string name="ndOpen">Open</string>
+    <string name="ndClose">Close</string>
+    <string name="main">Página Inicial</string>
+    <!-- Login -->
     <string name="login_tvTitulo">Login</string>
     <string name="login_tvEmail">Email</string>
     <string name="login_tvPassword">Password</string>
     <string name="login_btnLogin">Login</string>
-    <string name="login_tvForgotPassword">Forgot Password?</string>
-    <string name="login_tvSignup">Sign up</string>
+    <string name="login_btnForgotPassword">Esqueceu-se da password?</string>
+    <string name="login_tvSignupText">Não tens conta?</string>
+    <string name="login_btnSignup">Regista-te</string>
 
+    <!-- Signup -->
     <string name="signup_tvTitulo">Signup</string>
     <string name="signup_tvNome">Nome Completo</string>
     <string name="signup_hPrimeiro">Primeiro nome</string>
@@ -27,19 +34,27 @@
         <item>Senhorio</item>
     </string-array>
 
-    <string name="editprofile_tvTitulo">Edit profile</string>
+    <!-- Edit profile -->
+    <string name="editprofile_tvTitulo">Editar profile</string>
     <string name="editprofile_tvEmail">Email</string>
     <string name="editprofile_tvTelemovel">Número de telemóvel</string>
     <string name="editprofile_tvPassword">Password</string>
     <string name="editprofile_tvHorario">Horário de visitas</string>
     <string name="editprofile_btnAdd">Adiconar</string>
-    <string name="editprofile_btnSave">Save</string>
+    <string name="editprofile_btnSave">Atualizar</string>
 
+    <!-- Add horario -->
     <string name="addhorario_tvTitulo">Adicionar disponibilidade</string>
     <string name="addhorario_tvDia">Dia de semana</string>
     <string name="addhorario_tvInicio">Hora de inicio</string>
     <string name="addhorario_tvFim">Hora de fim</string>
     <string name="addhorario_btnAdd">Adiconar</string>
+
+    <string name="main_tvTextInicial">Encontre uma casa nas melhores cidades universitárias</string>
+    <string name="main_cidadeN1">Leiria</string>
+    <string name="main_cidadeN2">Coimbra</string>
+    <string name="main_cidadeN3">Porto</string>
+    <string name="main_cidadeN4">Lisboa</string>
 
     <string-array name="spDia">
         <item>Seg</item>
@@ -48,4 +63,137 @@
         <item>Qui</item>
         <item>Sex</item>
     </string-array>
+
+    <!-- Anuncio -->
+    <string name="anuncio_titulo">Apartamento T1 em Coimbra</string>
+
+    <string name="anuncio_infoTitulo">Sobre o anuncio</string>
+    <string name="anuncio_proprietario">Proprietario: </string>
+    <string name="anuncio_preco">Preço: </string>
+    <string name="anuncio_despesas">Despesas incluidas</string>
+    <string name="anuncio_dataDisponibilidade"> quartos disponíveis</string>
+    <string name="anuncio_dataAnuncio">Data do anuncio: </string>
+
+    <!-- Propriedade -->
+    <string name="anuncio_descricaoTitulo">Sobre a propriedade</string>
+
+    <!-- Casa -->
+    <string name="anuncio_casaTitulo">Características da casa</string>
+    <string name="anuncio_wifi">WI-FI</string>
+    <string name="anuncio_limpeza">Limpeza </string>
+    <string name="anuncio_capacidade">Capacidade de </string>
+    <string name="anuncio_numSalas">Número de salas: </string>
+    <string name="anuncio_numCozinhas">Número de cozinhas: </string>
+    <string name="anuncio_numQuartos">Número de quartos: </string>
+    <string name="anuncio_numWCs">Número de quartos de banho: </string>
+    <string name="anuncio_exterior">Área exterior</string>
+
+    <!-- Sala -->
+    <string name="anuncio_salaTitulo">Características da(s) sala(s)</string>
+    <string name="anuncio_televisao">Televisão</string>
+    <string name="anuncio_sofa">Sofá</string>
+    <string name="anuncio_mesa">Mesa</string>
+    <string name="anuncio_moveis">Móveis</string>
+    <string name="anuncio_salaAC">Ar condicionado</string>
+
+    <!-- Cozinha -->
+    <string name="anuncio_cozinhaTitulo">Características da(s) Cozinha(s)</string>
+    <string name="anuncio_lavaLoica">Lava-loica</string>
+    <string name="anuncio_maquinaLoica">Máquina de loica</string>
+    <string name="anuncio_maquinaRoupa">Máquina de roupa</string>
+    <string name="anuncio_tostadeira">Tostadeira</string>
+    <string name="anuncio_torradeira">Torradeira</string>
+    <string name="anuncio_microOndas">Micro-ondas</string>
+    <string name="anuncio_frigorifico">Frigorifico </string>
+    <string name="anuncio_arca">Arca</string>
+    <string name="anuncio_fogao">Fogão</string>
+    <string name="anuncio_forno">Forno</string>
+
+    <!-- Quarto -->
+    <string name="anuncio_quartoTitulo">Características do(s) quarto(s)</string>
+    <string name="anuncio_tamanho">Quarto </string>
+    <string name="anuncio_tipoCama">Cama de </string>
+    <string name="anuncio_varanda">Varanda</string>
+    <string name="anuncio_secretaria">Secretária</string>
+    <string name="anuncio_armario">Armário</string>
+    <string name="anuncio_quartoAC">Ar condicionado</string>
+
+    <!-- Regras -->
+    <string name="anuncio_regrasTitulo">Regras da casa</string>
+    <string name="anuncio_regrasVisitantes">Visitantes podem pernoitar</string>
+    <string name="anuncio_regrasFumar">Proibido fumar</string>
+    <string name="anuncio_regrasAnimais">Animais de estimação proibidos</string>
+
+    <!-- AddAnuncio -->
+    <string name="addAnuncio_titulo">Apartamento T1 em Coimbra</string>
+
+    <string name="addAnuncio_infoTitulo">Sobre o anuncio</string>
+    <string name="addAnuncio_preco">Preço: </string>
+    <string name="addAnuncio_despesas">Despesas incluidas</string>
+
+    <!-- Propriedade -->
+    <string name="addAnuncio_descricaoTitulo">Sobre a propriedade</string>
+    <string name="addanuncio_descricao">Descrição breve da propriedade</string>
+
+    <!-- Casa -->
+    <string name="addAnuncio_casaTitulo">Características da casa</string>
+    <string name="addAnuncio_tipoAlojamento">Tipo do alojamento: </string>
+    <string name="addAnuncio_wifi">WI-FI</string>
+    <string name="addAnuncio_limpeza">Limpeza: </string>
+    <string name="addAnuncio_numSalas">Número de salas: </string>
+    <string name="addAnuncio_numCozinhas">Número de cozinhas: </string>
+    <string name="addAnuncio_numQuartos">Número de quartos: </string>
+    <string name="addAnuncio_numWCs">Número de quartos de banho: </string>
+    <string name="addAnuncio_aquecimentoAgua">Aquecimento de água: </string>
+    <string name="addAnuncio_exterior">Área exterior</string>
+
+    <!-- Sala -->
+    <string name="addAnuncio_salaTitulo">Características da(s) sala(s)</string>
+    <string name="addAnuncio_televisao">Televisão</string>
+    <string name="addAnuncio_sofa">Sofá</string>
+    <string name="addAnuncio_mesa">Mesa</string>
+    <string name="addAnuncio_moveis">Móveis</string>
+    <string name="addAnuncio_aquecimento">Aquecimento: </string>
+    <string name="addAnuncio_salaAC">Ar condicionado</string>
+
+    <!-- Cozinha -->
+    <string name="addAnuncio_cozinhaTitulo">Características da(s) Cozinha(s)</string>
+    <string name="addAnuncio_lavaLoica">Lava-loica</string>
+    <string name="addAnuncio_maquinaLoica">Máquina de loica</string>
+    <string name="addAnuncio_maquinaRoupa">Máquina de roupa</string>
+    <string name="addAnuncio_tostadeira">Tostadeira</string>
+    <string name="addAnuncio_torradeira">Torradeira</string>
+    <string name="addAnuncio_microOndas">Micro-ondas</string>
+    <string name="addAnuncio_frigorifico">Frigorifico: </string>
+    <string name="addAnuncio_arca">Arca</string>
+    <string name="addAnuncio_fogao">Fogão: </string>
+    <string name="addAnuncio_forno">Forno</string>
+
+    <!-- Quarto -->
+    <string name="addAnuncio_quartoTitulo">Características do(s) quarto(s)</string>
+    <string name="addAnuncio_tamanhoQuarto">Quarto: </string>
+    <string name="addAnuncio_tipoCama">Cama de: </string>
+    <string name="addAnuncio_varanda">Varanda</string>
+    <string name="addAnuncio_secretaria">Secretária</string>
+    <string name="addAnuncio_armario">Armário</string>
+    <string name="addAnuncio_quartoAC">Ar condicionado</string>
+
+    <!-- Regras -->
+    <string name="addAnuncio_regrasTitulo">Regras da casa</string>
+    <string name="addAnuncio_regrasVisitantes">Visitantes podem pernoitar</string>
+    <string name="addAnuncio_regrasFumar">Proibido fumar</string>
+    <string name="addAnuncio_regrasAnimais">Animais de estimação proibidos</string>
+
+    <string name="addanuncio_publicar">publicar</string>
+    <string name="title_activity_add_anuncio">AddAnuncioActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".vistas.PesquisaActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginVertical="20dp"
+                android:orientation="vertical">
+
+                <SearchView
+                    android:id="@+id/pesquisa"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:iconifiedByDefault="false"
+                    />
+
+                <Button
+                    android:id="@+id/btnFiltros"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Filtros"
+                    android:layout_marginVertical="10dp"
+                    android:paddingHorizontal="30dp"
+                    android:textSize="20sp"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvNumResultados"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="10dp"
+                    android:text="2 Resultados"
+                    android:textSize="20sp" />
+
+                <View
+                    style="@style/DividerHorizontal"
+                    android:layout_marginBottom="5dp" />
+
+                <include
+                    layout="@layout/fragment_lista_anuncio"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

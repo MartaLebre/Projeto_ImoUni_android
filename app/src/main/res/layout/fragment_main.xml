@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".vistas.MainFragment">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
+                android:layout_marginHorizontal="10dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginVertical="20dp"
+                    android:orientation="vertical">
+
+                    <SearchView
+                        android:id="@+id/pesquisa"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:iconifiedByDefault="false"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/main_tvTextInicial"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/ivCidadeN1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_launcher_background"
+                            />
+
+                        <TextView
+                            android:id="@+id/tvCidadeN1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/main_cidadeN1"
+                            android:textAlignment="center"
+                            android:textSize="20sp"
+                            />
+
+                    </LinearLayout>
+
+                    <Space
+                        android:layout_width="40dp"
+                        android:layout_height="match_parent"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="40dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/ivCidadeN2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_launcher_background"
+                            />
+
+                        <TextView
+                            android:id="@+id/tvCidadeN2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/main_cidadeN2"
+                            android:textAlignment="center"
+                            android:textSize="20sp"
+                            />
+
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/ivCidadeN3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_launcher_background"
+                            />
+
+                        <TextView
+                            android:id="@+id/tvCidadeN3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/main_cidadeN3"
+                            android:textAlignment="center"
+                            android:textSize="20sp"
+                            />
+
+                    </LinearLayout>
+
+                    <Space
+                        android:layout_width="40dp"
+                        android:layout_height="match_parent"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="40dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/ivCidadeN4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_launcher_background"
+                            />
+
+                        <TextView
+                            android:id="@+id/tvCidadeN4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/main_cidadeN4"
+                            android:textAlignment="center"
+                            android:textSize="20sp"
+                            />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+</FrameLayout>

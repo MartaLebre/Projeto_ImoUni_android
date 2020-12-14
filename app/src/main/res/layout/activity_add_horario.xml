@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".vistas.AddHorarioActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="40dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvSignup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:text="@string/addhorario_tvTitulo"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvDia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="10dp"
+                    android:text="@string/addhorario_tvDia"
+                    android:textSize="22sp" />
+
+                <View
+                    style="@style/DividerHorizontal"
+                    android:layout_marginBottom="5dp" />
+
+                <Spinner
+                    android:id="@+id/spDia"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="20dp"
+                    />
+
+                <TextView
+                    android:id="@+id/tvInicio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="10dp"
+                    android:text="@string/addhorario_tvInicio"
+                    android:textSize="22sp"
+                    />
+
+                <View
+                    style="@style/DividerHorizontal"
+                    android:layout_marginBottom="5dp" />
+
+                <TimePicker
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:timePickerMode="spinner"
+                    />
+
+                <TextView
+                    android:id="@+id/tvFim"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="10dp"
+                    android:text="@string/addhorario_tvFim"
+                    android:textSize="22sp"
+                    />
+
+                <View
+                    style="@style/DividerHorizontal"
+                    android:layout_marginBottom="5dp" />
+
+                <TimePicker
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:timePickerMode="spinner"
+                    />
+
+            </LinearLayout>
+
+            <Button style="@style/Widget.AppCompat.Button.Colored"
+                android:id="@+id/btnAddHorario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingHorizontal="40dp"
+                android:layout_marginVertical="20dp"
+                android:text="@string/addhorario_btnAdd"
+                android:textSize="20sp"
+                />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

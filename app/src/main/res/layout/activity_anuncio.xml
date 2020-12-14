@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".vistas.AnuncioActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginVertical="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvAnuncioTitulo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/anuncio_titulo"
+                    android:textSize="28sp"
+                    android:textStyle="bold" />
+
+                <View
+                    style="@style/DividerHorizontal"
+                    android:layout_marginVertical="5dp" />
+
+                <ImageView
+                    android:id="@+id/ivImagemPrincipal"
+                    android:layout_width="356dp"
+                    android:layout_height="356dp"
+                    android:layout_gravity="center" />
+
+                <!-- Anuncio -->
+                <TextView
+                    android:id="@+id/tvInfoTitulo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/anuncio_infoTitulo"
+                    android:textAllCaps="true"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="10dp"/>
+
+                <View
+                    style="@style/DividerHorizontal"
+                    android:layout_marginBottom="5dp" />
+
+                <TextView
+                    android:id="@+id/tvProprietario"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/anuncio_proprietario"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tvPreco"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/anuncio_preco"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/tvDespesas"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/anuncio_despesas"
+                        android:textSize="20sp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="end">
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:enabled="false"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvDataDisponibilidade"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/anuncio_dataDisponibilidade"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tvDataAnuncio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/anuncio_dataAnuncio"
+                    android:textSize="20sp" />
+
+                <!-- Propriedade -->
+                <TextView
+                    android:id="@+id/tvDescricaoTitulo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/anuncio_descricaoTitulo"
+                    android:textAllCaps="true"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="10dp"/>
+
+                <View
+                    style="@style/DividerHorizontal"
+                    android:layout_marginBottom="5dp" />
+
+                <TextView
+                    android:id="@+id/tvAnucioDescricao"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp" />
+
+                <!-- Casa -->
+                <TextView
+                    android:id="@+id/tvCasaTitulo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/anuncio_casaTitulo"
+                    android:textAllCaps="true"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="10dp"/>
+
+                <View
+                    style="@style/DividerHorizontal"
+                    android:layout_marginBottom="5dp" />
+
+                <TextView
+                    android:id="@+id/tvTipoAlojamento"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tvWifi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/anuncio_wifi"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tvLimpeza"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/anuncio_limpeza"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tvCapacidade"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/anuncio_capacidade"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tvNumSalas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/anuncio_numSalas"
+                    android:textSize="20sp" />
+
+
+                <TextView
+                    android:id="@+id/tvNumCozinhas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/anuncio_numCozinhas"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tvNumQuartos"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/anuncio_numQuartos"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tvNumWcs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/anuncio_numWCs"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tvExterior"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/anuncio_exterior"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tvAquecimentoAgua"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp" />
+
+                <!-- Sala -->
+                <TextView
+                    android:id="@+id/tvSalaTitulo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/addAnuncio_salaTitulo"
+                    android:textAllCaps="true"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="10dp"/>
+
+                <View
+                    style="@style/DividerHorizontal"
+                    android:layout_marginBottom="5dp" />
+
+                <Spinner
+                    android:id="@+id/spSalaSelecionada"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tvTelevisao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/anuncio_televisao"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tvSofa"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/anuncio_sofa"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tvMesa"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/anuncio_mesa"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tvMoveis"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/anuncio_moveis"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tvAquecimento"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tvSalaAC"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/anuncio_salaAC"
+                    android:textSize="20sp" />
+
+                <!-- Cozinha -->
+                <TextView
+                    android:id="@+id/tvCozinhaTitulo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/addAnuncio_cozinhaTitulo"
+                    android:textAllCaps="true"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="10dp"/>
+
+                <View
+                    style="@style/DividerHorizontal"
+                    android:layout_marginBottom="5dp" />
+
+                <Spinner
+                    android:id="@+id/spCozinhaSelecionada"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tvLavaLoica"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/anuncio_lavaLoica"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tvMaquinaLoica"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/anuncio_maquinaLoica"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tvMaquinaRoupa"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/anuncio_maquinaRoupa"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tvTostadeira"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/anuncio_tostadeira"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tvTorradeira"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/anuncio_torradeira"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tvMicroOndas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/anuncio_microOndas"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tvFrigorifico"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/anuncio_frigorifico"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tvArca"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/anuncio_arca"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tvFogao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/anuncio_fogao"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tvForno"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/anuncio_forno"
+                    android:textSize="20sp" />
+
+                <!-- Quarto -->
+                <TextView
+                    android:id="@+id/tvQuartoTitulo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/addAnuncio_quartoTitulo"
+                    android:textAllCaps="true"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="10dp"/>
+
+                <View
+                    style="@style/DividerHorizontal"
+                    android:layout_marginBottom="5dp" />
+
+                <Spinner
+                    android:id="@+id/spQuartoSelecionado"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tvTamanho"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/anuncio_tamanho"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tvTipoCama"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/anuncio_tipoCama"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tvVaranda"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/anuncio_varanda"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tvSecretaria"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/anuncio_secretaria"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tvArmario"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/anuncio_armario"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tvQuartoAC"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/anuncio_quartoAC"
+                    android:textSize="20sp" />
+
+                <!-- Regras -->
+                <TextView
+                    android:id="@+id/tvRegrasTitulo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/addAnuncio_regrasTitulo"
+                    android:textAllCaps="true"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="10dp"/>
+
+                <View
+                    style="@style/DividerHorizontal"
+                    android:layout_marginBottom="5dp" />
+
+                <TextView
+                    android:id="@+id/tvRegrasVisitantes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/anuncio_regrasVisitantes"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tvRegrasFumar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/anuncio_regrasFumar"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tvRegrasAnimais"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/anuncio_regrasAnimais"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

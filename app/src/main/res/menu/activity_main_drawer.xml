@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior ="single">
+        <item
+            android:id="@+id/nav_Inicial"
+            android:icon="@drawable/common_full_open_on_phone"
+            android:title="Página Inicial" />
+
+        <item
+            android:id="@+id/nav_PesquisaAnuncio"
+            android:icon="@drawable/common_full_open_on_phone"
+            android:title="Pesquisa Anuncio" />
+
+
+        <item android:title="Adicionar Anúncio">
+            <menu>
+                <item
+                    android:id="@+id/nav_addAnuncio"
+                    android:icon="@drawable/common_full_open_on_phone"
+                    android:title="Adicionar Anuncio" />
+            </menu>
+        </item>
+
+        <item android:title="Perfil">
+            <menu>
+                <item
+                    android:id="@+id/nav_editPerfil"
+                    android:icon="@drawable/common_full_open_on_phone"
+                    android:title="Editar Perfil" />
+            </menu>
+        </item>
+    </group>
+
+
+</menu>
