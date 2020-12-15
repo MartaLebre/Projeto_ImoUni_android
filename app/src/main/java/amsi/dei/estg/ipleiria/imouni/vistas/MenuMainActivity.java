@@ -23,7 +23,7 @@ public class MenuMainActivity extends AppCompatActivity implements NavigationVie
     private DrawerLayout drawer;
 
     Fragment fragment = null;
-    Intent intent = null;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,9 +44,9 @@ public class MenuMainActivity extends AppCompatActivity implements NavigationVie
         fragmentManager = getSupportFragmentManager();
         navigationView.setNavigationItemSelectedListener(this);
         carregarFragmento();
+
     }
     private void carregarFragmento(){
-
         fragment = new MainFragment();
         setTitle(R.string.main);
             if(fragment != null)
@@ -61,16 +61,16 @@ public class MenuMainActivity extends AppCompatActivity implements NavigationVie
                 break;
             case R.id.nav_PesquisaAnuncio:
                 setTitle(menuItem.getTitle());
-                intent = new Intent(this, PesquisaActivity.class);
-                startActivity(intent);
+                fragment = new PesquisaFragment();
+                break;
             case R.id.nav_addAnuncio:
                 setTitle(menuItem.getTitle());
-                intent = new Intent(this, AddAnuncioActivity.class);
-                startActivity(intent);
+                fragment = new AddAnuncioFragment();
+                break;
             case R.id.nav_editPerfil:
                 setTitle(menuItem.getTitle());
-                intent = new Intent(this, EditProfileActivity.class);
-                startActivity(intent);
+                fragment = new EditProfileFragment();
+                break;
             default:
                 fragment = new MainFragment();
                 setTitle(menuItem.getTitle());
@@ -78,7 +78,12 @@ public class MenuMainActivity extends AppCompatActivity implements NavigationVie
         if(fragment != null)
             fragmentManager.beginTransaction().replace(R.id.contentFragment, fragment).commit();
         drawer.closeDrawer(GravityCompat.START);
-        drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onBackPressed(){
+        carregarFragmento();
+        return;
     }
 }

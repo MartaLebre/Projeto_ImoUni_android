@@ -25,13 +25,7 @@
         </intent-filter>
         </activity>
 
-        <activity android:name=".vistas.PesquisaActivity" />
-
         <activity android:name=".vistas.AnuncioActivity" />
-
-        <activity android:name=".vistas.AddAnuncioActivity" />
-
-        <activity android:name=".vistas.EditProfileActivity" />
 
         <activity android:name=".vistas.AddHorarioActivity" />
 
