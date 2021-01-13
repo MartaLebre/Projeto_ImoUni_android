@@ -76,6 +76,22 @@
                 </LinearLayout>
 
                 <TextView
+                    android:id="@+id/tvUsername"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/Username"
+                    android:textSize="22sp"
+                    />
+
+                <EditText
+                    android:id="@+id/etUsername"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    />
+
+                <TextView
                     android:id="@+id/tvEmail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -158,12 +174,11 @@
 
                 <DatePicker
                     android:id="@+id/dpNascimento"
-                    android:datePickerMode="spinner"
-                    android:calendarViewShown="false"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="18sp"
-                    />
+                    android:calendarViewShown="false"
+                    android:datePickerMode="spinner"
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/tvPassword"

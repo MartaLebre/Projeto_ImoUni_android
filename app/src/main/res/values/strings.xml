@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">ImoUni</string>
-
+    <string name="app_preferences" translatable="false">techpower</string>
     <!-- alterar -->
     <string name="ndOpen">Open</string>
     <string name="ndClose">Close</string>
@@ -28,6 +28,8 @@
     <string name="signup_tvPassword">Password</string>
     <string name="signup_tvTipo">Tipo de utilizador</string>
     <string name="signup_btnSignup">Signup</string>
+    <string name="signup_success">Account Created Successfully!</string>
+    <string name="signup_error">ERROR!\nUsername, E-mail or NIF Already in use.</string>
 
     <string-array name="spTipo">
         <item>Estudante</item>
@@ -196,4 +198,5 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Username">Username</string>
 </resources>

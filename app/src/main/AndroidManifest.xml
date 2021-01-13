@@ -13,11 +13,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".vistas.SignupActivity" />
         <activity
             android:name=".vistas.MenuMainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".vistas.LoginActivity">
+        <activity android:name=".vistas.LoginActivity"/>
+        <activity android:name=".vistas.SignupActivity" >
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
 
