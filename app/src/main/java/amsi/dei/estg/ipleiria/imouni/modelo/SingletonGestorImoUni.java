@@ -16,14 +16,17 @@ import java.util.HashMap;
 import java.util.Map;
 
 import amsi.dei.estg.ipleiria.imouni.R;
+import amsi.dei.estg.ipleiria.imouni.listeners.UserListener;
 
 public class SingletonGestorImoUni {
 
     private static SingletonGestorImoUni instance = null;
     private static RequestQueue volleyQueue = null;
 
-    private static final String mUrlAPIUserLogin = "http://10.0.2.2:8080/userprofile/login/"; //API pontos turisticos
-    private static final String mUrlAPIRegistarUser = "http://10.0.2.2:8080/userprofile/registo"; //API pontos turisticos
+    private static final String mUrlAPIUserLogin = "http://10.0.2.2:8080/api/user/login/"; //API pontos turisticos
+    private static final String mUrlAPIRegistarUser = "http://10.0.2.2:8080/api/user/registo"; //API pontos turisticos
+
+    public UserListener userListener;
 
     public static synchronized SingletonGestorImoUni getInstance(Context context) {
         if (instance == null) {
@@ -42,44 +45,32 @@ public class SingletonGestorImoUni {
      * Registar User API
      */
 
-    public void signupUserAPI(final Utilizador user, final Context context) {
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, mUrlAPIRegistarUser,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-                            JSONObject jsonObject = new JSONObject(response);
-                            String success = jsonObject.getString("isSuccess");
 
-                            if (success.equals("201")) {
-                                Toast.makeText(context, R.string.signup_success, Toast.LENGTH_LONG).show();
-                            }
+    public void loginUserAPI(final String username, final String password, final Context context) {
+        StringRequest req = new StringRequest(Request.Method.POST,  mUrlAPIUserLogin, new Response.Listener<String>() {
 
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                            Toast.makeText(context, R.string.signup_error, Toast.LENGTH_LONG).show();
-                        }
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(context, "Register Error: " + error.toString(), Toast.LENGTH_LONG).show();
+            public void onResponse(String response) {
+                if(userListener != null){
+                    userListener.onValidateLogin(UtilizadoresParserJson.parserJsonLogin(response), email);
+                }
 
             }
-        }){
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(context, error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        }) {
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<>();
-                params.put("username", user.getUsername());
-                params.put("email", user.getEmail());
-                params.put("password", user.getPassword());
-                params.put("firstName", user.getPrimeiroNome());
-                params.put("lastName", user.getUltimoNome());
-                params.put("phone", user.getNumeroTelemovel());
+                params.put("username", username);
+                params.put("password", password);
                 return params;
             }
         };
-        volleyQueue.add(stringRequest);
+        volleyQueue.add(req);
     }
 }
 

@@ -6,6 +6,7 @@ import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.FragmentManager;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Patterns;
@@ -18,6 +19,15 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -138,8 +148,49 @@ public class SignupActivity extends AppCompatActivity {
         } else {
             //String genero = "Masculino";
             return new Utilizador(username, email, password, primeiroNome, ultimoNome, numeroTelemovel, genero, dataNascimento);
-            SingletonGestorImoUni.getInstance(getApplicationContext()).signupUserAPI(utilizador, getApplicationContext());
         }
+    }
+    public void registarUserAPI(final Utilizador utilizador, final Context context) {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, mUrlAPIRegistarUser,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            String success = jsonObject.getString("isSuccess");
+
+                            if (success.equals("201")) {
+                                Toast.makeText(context, R.string.signup_success, Toast.LENGTH_LONG).show();
+                            }
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            Toast.makeText(context, R.string.signup_error, Toast.LENGTH_LONG).show();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(context, "Register Error: " + error.toString(), Toast.LENGTH_LONG).show();
+
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<>();
+                params.put("primeiro_nome", utilizador.getPrimeiroNome());
+                params.put("ultimo_nome", utilizador.getUltimoNome());
+                params.put("username", utilizador.getUsername());
+                params.put("email", utilizador.getEmail());
+                params.put("password", utilizador.getPassword());
+                params.put("numero_telemovel", utilizador.getNumeroTelemovel());
+                params.put("genero", utilizador.getGenero());
+                params.put("data_nascimento", utilizador.getDataNascimento());
+
+                return params;
+            }
+        };
+        SingletonGestorImoUni.getInstance(this).addToRequestQueue(stringRequest);
     }
     
 
