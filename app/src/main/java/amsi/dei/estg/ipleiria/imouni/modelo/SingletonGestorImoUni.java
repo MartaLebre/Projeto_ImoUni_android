@@ -11,9 +11,11 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -23,40 +25,79 @@ import java.util.Map;
 import amsi.dei.estg.ipleiria.imouni.R;
 import amsi.dei.estg.ipleiria.imouni.listeners.UserListener;
 import amsi.dei.estg.ipleiria.imouni.utils.UtilizadoresParserJson;
+import amsi.dei.estg.ipleiria.imouni.listeners.AnunciosListener;
+import amsi.dei.estg.ipleiria.imouni.utils.AnuncioParserJson;
 
-public class SingletonGestorImoUni {
+public class SingletonGestorImoUni{
+
+    private static final String mUrlAPIRegistarUser = "http://192.168.1.73:8080/user/registo";
+    private static final String mUrlAPIUserLogin = "http://192.168.1.73:8080/user/login/";
+    private static final String mUrlAPIAnuncios = "http://192.168.1.73:8080/anuncios/";
 
     private ArrayList<Utilizador> utilizadores;
+    public UserListener userListener;
+    private ArrayList<Anuncio> anuncios;
+    private AnuncioDBHelper anunciosDB = null;
+    public AnunciosListener anunciosListener;
+
     private static SingletonGestorImoUni instance = null;
     private static Context sContext;
-    private static final String mUrlAPIRegistarUser = "http://192.168.1.77:8080/user/registo";
-    private static final String mUrlAPIUserLogin = "http://192.168.1.77:8080/user/login/"; //API pontos turisticos
     private static RequestQueue volleyQueue = null;
 
-    public UserListener userListener;
 
-    public static synchronized SingletonGestorImoUni getInstance(Context context) {
-        if (instance == null) {
+    public static synchronized SingletonGestorImoUni getInstance(Context context){
+        if (instance == null){
             instance = new SingletonGestorImoUni(context);
             volleyQueue = Volley.newRequestQueue(context);
         }
         return instance;
     }
-    public SingletonGestorImoUni(Context context) {
 
+    public SingletonGestorImoUni(Context context){
+        anuncios = new ArrayList<>();
+        anunciosDB = new AnuncioDBHelper(context);
     }
-    public void setUserListener(UserListener userListener) {
+
+    public void setUserListener(UserListener userListener){
         this.userListener = userListener;
     }
 
+    public Anuncio getAnuncio(int id){
+        for(Anuncio anuncio : anuncios){
+            if(anuncio.getId() == id)
+                return anuncio;
+        }
+        return null;
+    }
 
-
-    public static boolean isConnectedInternet(Context context) {
+    public static boolean isConnectedInternet(Context context){
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = cm.getActiveNetworkInfo();
 
         return networkInfo != null && networkInfo.isConnected();
     }
+
+    /*********** Metodos para aceder a DB local ***********/
+
+    public ArrayList<Anuncio> getAnunciosDB(){
+        anuncios = anunciosDB.getAllAnunciosDB();
+
+        return anuncios;
+        // return new ArrayList<>(anuncios);
+    }
+
+    public void adicionarAnunciosDB(ArrayList<Anuncio> anuncios) {
+        anunciosDB.removerAllAnunciosDB();
+        for(Anuncio anuncio : anuncios){
+            anunciosDB.adicionarAnuncioDB(anuncio);
+        }
+    }
+
+    public void adicionarAnuncioDB(Anuncio anuncio){
+        anunciosDB.adicionarAnuncioDB(anuncio);
+    }
+
+    /*********** Métodos de acesso à API - Utilizador ***********/
 
     public void registarUserAPI(final Utilizador utilizador, final Context context) {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, mUrlAPIRegistarUser,
@@ -67,12 +108,10 @@ public class SingletonGestorImoUni {
                             userListener.onUserRegistado(response);
                         }
                     }
-
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(context, error.getMessage(), Toast.LENGTH_SHORT).show();
-
             }
         }){
             @Override
@@ -88,10 +127,7 @@ public class SingletonGestorImoUni {
 
                 //JSONObject userJSON = new JSONObject(params);
 
-
-
                 //Log.e("USERJSON",userJSON.toString());
-
 
                 return params;
             }
@@ -106,10 +142,8 @@ public class SingletonGestorImoUni {
                 if(userListener != null){
                     userListener.onValidateLogin(UtilizadoresParserJson.parserJsonLogin(response), username);
                 }
-
             }
-        }, new Response.ErrorListener() {
-
+        }, new Response.ErrorListener(){
             @Override
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(context, error.getMessage(), Toast.LENGTH_SHORT).show();
@@ -126,6 +160,38 @@ public class SingletonGestorImoUni {
         volleyQueue.add(req);
     }
 
+    /*********** Métodos de acesso à API - Anúncios ***********/
+
+    public void getAllAnunciosAPI(final Context context, boolean isConnected) {
+        if(!isConnected){
+            Toast.makeText(context, "Não tem ligação à Internet", Toast.LENGTH_SHORT).show();
+            anuncios = anunciosDB.getAllAnunciosDB();
+
+            if(anunciosListener != null){
+                anunciosListener.onRefreshListaAnuncios(anuncios);
+            }
+        }
+        else{
+            JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, mUrlAPIAnuncios, null, new Response.Listener<JSONArray>(){
+                @Override
+                public void onResponse(JSONArray response){
+                    anuncios = AnuncioParserJson.parserJsonAnuncios(response);
+                    adicionarAnunciosDB(anuncios);
+
+                    if(anunciosListener != null) {
+                        anunciosListener.onRefreshListaAnuncios(anuncios);
+                    }
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Toast.makeText(context, error.getMessage(), Toast.LENGTH_LONG).show();
+                }
+            });
+
+            volleyQueue.add(request);
+        }
+    }
 }
 
 

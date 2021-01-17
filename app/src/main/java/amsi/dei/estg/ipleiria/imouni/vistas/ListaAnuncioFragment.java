@@ -24,17 +24,19 @@ import com.google.android.material.snackbar.Snackbar;
 import java.util.ArrayList;
 
 import amsi.dei.estg.ipleiria.imouni.R;
+import amsi.dei.estg.ipleiria.imouni.adaptadores.ListaAnuncioAdaptador;
+import amsi.dei.estg.ipleiria.imouni.modelo.Anuncio;
+import amsi.dei.estg.ipleiria.imouni.modelo.SingletonGestorImoUni;
 
 
 public class ListaAnuncioFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
 
     private ListView lvListAnuncio;
+    private ArrayList<Anuncio> listaAnuncios;
     private SwipeRefreshLayout swipeRefreshLayout;
-
 
     public ListaAnuncioFragment() {
         // Required empty public constructor
-
     }
 
     @Override
@@ -42,29 +44,45 @@ public class ListaAnuncioFragment extends Fragment implements SwipeRefreshLayout
         View view = inflater.inflate(R.layout.fragment_lista_anuncio, container, false);
         setHasOptionsMenu(true);
 
-
-        swipeRefreshLayout = view.findViewById(R.id.swipe_refresh_layout);
-
-        swipeRefreshLayout.setOnRefreshListener(this);
-
+        lvListAnuncio = view.findViewById(R.id.lvListaAnuncios);
 
         lvListAnuncio.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(getContext(), AnuncioActivity.class);
+                intent.putExtra("ID", (int) id);
+                startActivity(intent);
 
             }
         });
+
+        swipeRefreshLayout = view.findViewById(R.id.swipe_refresh_layout);
+        swipeRefreshLayout.setOnRefreshListener(this);
+
         return view;
+    }
+
+    /*
+    @Override
+    public void onResume(){
+        super.onResume();
+        if(searchView != null)
+            searchView.onActionViewCollapsed();
+        SingletonGestorImoUni.getInstance(getContext()).setAnunciosListener(this);
+
+        SingletonGestorImoUni.getInstance(getContext()).setAnuncios(this);
+    }
+    */
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        SingletonGestorImoUni.getInstance(getContext()).getAllAnunciosAPI(getContext(), SingletonGestorImoUni.isConnectedInternet(getContext()));
     }
 
     @Override
     public void onRefresh() {
-        //listaLivros = SingletonGestorLivros.getInstance(getContext()).getLivrosBD();
-        //lvListaLivros.setAdapter(new ListaLivroAdaptador(getContext(), listaLivros));
-        System.out.println("ON refresh");
+        SingletonGestorImoUni.getInstance(getContext()).getAllAnunciosAPI(getContext(), SingletonGestorImoUni.isConnectedInternet(getContext()));
         swipeRefreshLayout.setRefreshing(false);
     }
 }
