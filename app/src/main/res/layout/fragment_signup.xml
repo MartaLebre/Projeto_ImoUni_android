@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    tools:context=".vistas.SignupActivity">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".vistas.SignupFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -88,8 +88,7 @@
                     android:id="@+id/etUsername"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="18sp"
-                    />
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/tvEmail"
@@ -134,34 +133,14 @@
                     android:textSize="22sp"
                     />
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:orientation="horizontal">
 
-                    <CheckBox
-                        android:id="@+id/cbGenero_mas"
+                    <EditText
+                        android:id="@+id/etGenero"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/signup_cbGenero_mas"
                         android:textSize="18sp"
                         />
 
-                    <Space
-                        android:layout_width="20dp"
-                        android:layout_height="match_parent"
-                        />
-
-                    <CheckBox
-                        android:id="@+id/cbGenero_fem"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/signup_cbGenero_fem"
-                        android:textSize="18sp"
-                        />
-
-                </LinearLayout>
 
                 <TextView
                     android:id="@+id/tvNascimento"
@@ -196,23 +175,6 @@
                     android:textSize="18sp"
                     />
 
-                <TextView
-                    android:id="@+id/tvTipo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="@string/signup_tvTipo"
-                    android:textSize="22sp"
-                    />
-
-                <Spinner
-                    android:id="@+id/spTipo"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginVertical="20dp"
-                    android:textSize="18sp"
-                    />
-
                 <Button style="@style/Widget.AppCompat.Button.Colored"
                     android:id="@+id/btnSignup"
                     android:layout_gravity="center"
@@ -227,4 +189,4 @@
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
-</LinearLayout>
+</FrameLayout>

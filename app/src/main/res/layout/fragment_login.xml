@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".vistas.LoginActivity"
-    >
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".vistas.LoginFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -41,16 +40,16 @@
                 />
 
             <TextView
-                android:id="@+id/tvEmail"
+                android:id="@+id/tvUsername"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="@string/login_tvEmail"
+                android:text="Username"
                 android:textSize="22dp"
                 />
 
             <EditText
-                android:id="@+id/etEmail"
+                android:id="@+id/etUsername"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
@@ -103,20 +102,6 @@
             android:layout_gravity="center"
             android:orientation="vertical">
 
-            <Button style="@style/Widget.AppCompat.Button.Borderless"
-                android:id="@+id/btnForgotPassword"
-                android:layout_gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/login_btnForgotPassword"
-                android:textSize="20sp"
-                android:textAllCaps="false"
-                />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="20dp"
-                />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -145,4 +130,4 @@
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+</FrameLayout>

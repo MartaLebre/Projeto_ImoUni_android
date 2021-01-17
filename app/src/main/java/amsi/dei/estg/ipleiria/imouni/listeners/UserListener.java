@@ -1,11 +1,11 @@
 package amsi.dei.estg.ipleiria.imouni.listeners;
 
 public interface UserListener {
-    public void onUserRegistado();
 
-    public void onDatePickerSelected(String data);
+    public void onUserRegistado(String response);
 
-    void onValidateLogin(String username, String password);
+
+    void onValidateLogin(String token, String username);
 
 
 }

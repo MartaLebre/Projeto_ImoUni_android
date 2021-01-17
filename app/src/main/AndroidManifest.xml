@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -15,9 +16,8 @@
         android:usesCleartextTraffic="true">
         <activity
             android:name=".vistas.MenuMainActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".vistas.LoginActivity"/>
-        <activity android:name=".vistas.SignupActivity" >
+            android:theme="@style/AppTheme.NoActionBar" >
+
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
 
@@ -25,9 +25,6 @@
         </intent-filter>
         </activity>
 
-        <activity android:name=".vistas.AnuncioActivity" />
-
-        <activity android:name=".vistas.AddHorarioActivity" />
 
     </application>
 

@@ -15,12 +15,12 @@ import amsi.dei.estg.ipleiria.imouni.R;
 
 public class Utilizador {
     private int id;
-    private String username, email, password, primeiroNome, ultimoNome, numeroTelemovel, genero, dataNascimento;
+    private String username, email, password, primeiroNome, ultimoNome, numeroTelemovel, genero; //dataNascimento
 
     private Pattern pattern;
     private Matcher matcher;
 
-    public Utilizador(String username, String email, String password, String primeiroNome, String ultimoNome, String numeroTelemovel, String genero, String dataNascimento) {
+    public Utilizador( String primeiroNome, String ultimoNome, String username, String email, String password, String numeroTelemovel, String genero) {
         this.username = username;
         this.email = email;
         this.password = password;
@@ -28,7 +28,7 @@ public class Utilizador {
         this.ultimoNome = ultimoNome;
         this.numeroTelemovel = numeroTelemovel;
         this.genero = genero;
-        this.dataNascimento = dataNascimento;
+        //this.dataNascimento = dataNascimento;
 
     }
 
@@ -95,7 +95,7 @@ public class Utilizador {
     public void setGenero(String genero) {
         this.genero = genero;
     }
-
+/*
     public String getDataNascimento() {
         return dataNascimento;
     }
@@ -103,7 +103,7 @@ public class Utilizador {
     public void setDataNascimento(String dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
-
+*/
 
 
 
@@ -112,14 +112,14 @@ public class Utilizador {
             // Saves authkey and user information in the shared preferences
             SharedPreferences.Editor editor = preferences.edit();
             editor.putString("id", response.getString("id"));
+            editor.putString("primeiro_nome", response.getString("primeiro_nome"));
+            editor.putString("ultimo_nome", response.getString("ultimo_nome"));
             editor.putString("username", response.getString("username"));
             editor.putString("authkey", response.getString("auth_key"));
             editor.putString("email", response.getString("email"));
-            editor.putString("primeiroNome", response.getString("primeiroNome"));
-            editor.putString("ultimoNome", response.getString("ultimoNome"));
-            editor.putString("numeroTelemovel", response.getString("numeroTelemovel"));
+            editor.putString("numero_telemovel", response.getString("numero_telemovel"));
             editor.putString("genero", response.getString("genero"));
-            editor.putString("dataNascimento", response.getString("dataNascimento"));
+            //editor.putString("data_nascimento", response.getString("data_nascimento"));
             editor.apply();
         } catch (JSONException e) {
             e.printStackTrace();
@@ -131,14 +131,14 @@ public class Utilizador {
             SharedPreferences preferences = context.getSharedPreferences(context.getString(R.string.app_preferences), Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = preferences.edit();
             editor.remove("id");
+            editor.remove("primeiro_nome");
+            editor.remove("ultimo_nome");
             editor.remove("username");
             editor.remove("authkey");
             editor.remove("email");
-            editor.remove("primeiroNome");
-            editor.remove("ultimoNome");
-            editor.remove("numeroTelemovel");
+            editor.remove("numero_telemovel");
             editor.remove("genero");
-            editor.remove("dataNascimento");
+            //editor.remove("data_nascimento");
             editor.apply();
         } catch (Exception e) {
             e.printStackTrace();

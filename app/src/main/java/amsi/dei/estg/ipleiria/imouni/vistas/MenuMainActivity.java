@@ -21,10 +21,11 @@ public class MenuMainActivity extends AppCompatActivity implements NavigationVie
     private FragmentManager fragmentManager;
     private NavigationView navigationView;
     private DrawerLayout drawer;
-
+    public static final String USERNAME = "USERNAME";
+    public static final String TOKEN = "TOKEN";
     Fragment fragment = null;
-
-
+    private String token;
+    public static final String PREF_INFO_USER = "PREF_INFO_USER";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +61,7 @@ public class MenuMainActivity extends AppCompatActivity implements NavigationVie
                 fragment = new MainFragment();
                 break;
             case R.id.nav_PesquisaAnuncio:
+
                 setTitle(menuItem.getTitle());
                 fragment = new PesquisaFragment();
                 break;
@@ -68,9 +70,15 @@ public class MenuMainActivity extends AppCompatActivity implements NavigationVie
                 fragment = new AddAnuncioFragment();
                 break;
             case R.id.nav_editPerfil:
-                setTitle(menuItem.getTitle());
-                fragment = new EditProfileFragment();
-                break;
+                if(token != null) {
+                    fragment = new EditProfileFragment();
+                    setTitle(menuItem.getTitle());
+                    break;
+                }else{
+                    fragment = new LoginFragment();
+                    setTitle(menuItem.getTitle());
+                    break;
+                }
             default:
                 fragment = new MainFragment();
                 setTitle(menuItem.getTitle());
