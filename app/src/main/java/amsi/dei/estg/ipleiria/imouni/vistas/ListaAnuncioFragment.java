@@ -25,14 +25,15 @@ import java.util.ArrayList;
 
 import amsi.dei.estg.ipleiria.imouni.R;
 import amsi.dei.estg.ipleiria.imouni.adaptadores.ListaAnuncioAdaptador;
+import amsi.dei.estg.ipleiria.imouni.listeners.AnunciosListener;
 import amsi.dei.estg.ipleiria.imouni.modelo.Anuncio;
 import amsi.dei.estg.ipleiria.imouni.modelo.SingletonGestorImoUni;
 
 
-public class ListaAnuncioFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
+public class ListaAnuncioFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener, AnunciosListener {
 
     private ListView lvListAnuncio;
-    private ArrayList<Anuncio> listaAnuncios;
+    //private ArrayList<Anuncio> listaAnuncios;
     private SwipeRefreshLayout swipeRefreshLayout;
 
     public ListaAnuncioFragment() {
@@ -59,6 +60,10 @@ public class ListaAnuncioFragment extends Fragment implements SwipeRefreshLayout
         swipeRefreshLayout = view.findViewById(R.id.swipe_refresh_layout);
         swipeRefreshLayout.setOnRefreshListener(this);
 
+        SingletonGestorImoUni.getInstance(getContext()).getAllAnunciosAPI(getContext());
+        SingletonGestorImoUni.getInstance(getContext()).setAnunciosListener(this);
+
+
         return view;
     }
 
@@ -77,12 +82,24 @@ public class ListaAnuncioFragment extends Fragment implements SwipeRefreshLayout
     @Override
     public void onResume() {
         super.onResume();
-        SingletonGestorImoUni.getInstance(getContext()).getAllAnunciosAPI(getContext(), SingletonGestorImoUni.isConnectedInternet(getContext()));
+        SingletonGestorImoUni.getInstance(getContext()).setAnunciosListener(this);
     }
 
     @Override
     public void onRefresh() {
-        SingletonGestorImoUni.getInstance(getContext()).getAllAnunciosAPI(getContext(), SingletonGestorImoUni.isConnectedInternet(getContext()));
+        SingletonGestorImoUni.getInstance(getContext()).getAllAnunciosAPI(getContext());
         swipeRefreshLayout.setRefreshing(false);
+    }
+
+    @Override
+    public void onRefreshListaAnuncios(ArrayList<Anuncio> listaAnuncios) {
+        if(listaAnuncios != null){
+            lvListAnuncio.setAdapter(new ListaAnuncioAdaptador(getContext(),listaAnuncios));
+        }
+    }
+
+    @Override
+    public void onRefreshDetalhes() {
+        //empty
     }
 }

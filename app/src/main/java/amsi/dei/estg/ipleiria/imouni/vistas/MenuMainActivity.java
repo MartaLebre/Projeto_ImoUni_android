@@ -66,13 +66,8 @@ public class MenuMainActivity extends AppCompatActivity implements NavigationVie
                 fragment = new MainFragment();
                 break;
             case R.id.nav_PesquisaAnuncio:
-
                 setTitle(menuItem.getTitle());
                 fragment = new PesquisaFragment();
-                break;
-            case R.id.nav_addAnuncio:
-                setTitle(menuItem.getTitle());
-                fragment = new AddAnuncioFragment();
                 break;
             case R.id.nav_editPerfil:
                 if(token != null) {

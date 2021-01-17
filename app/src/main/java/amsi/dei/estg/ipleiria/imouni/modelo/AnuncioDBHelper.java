@@ -11,17 +11,17 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 
 public class AnuncioDBHelper extends SQLiteOpenHelper{
-    private static final String DB_NAME = "anuncioDB";
+    private static final String DB_NAME = "anunciosDB";
     private static final int DB_VERSION = 1;
 
-    private static final String TABLE_ANUNCIOS = "Anuncio";
+    private static final String TABLE_ANUNCIOS = "Anuncios";
     private static final String ID_ANUNCIO = "id";
     private static final String ID_PROPRIETARIO = "id_proprietario";
     private static final String ID_CASA = "id_casa";
     private static final String TITULO_ANUNCIO = "titulo";
     private static final String PRECO_ANUNCIO = "preco";
     private static final String CRIACAO_ANUNCIO = "data_criacao";
-    private static final String DISPONIBLIDADE_ANUNCIO = "data_disponibilidade";
+    private static final String DISPONIBILIDADE_ANUNCIO = "data_disponibilidade";
     private static final String DESPESAS_ANUNCIO = "despesas_inc";
     private static final String DESCRICAO_ANUNCIO = "descricao";
 
@@ -41,8 +41,8 @@ public class AnuncioDBHelper extends SQLiteOpenHelper{
                 ID_CASA + " INT NOT NULL, " +
                 TITULO_ANUNCIO + " VARCHAR(45) NOT NULL, " +
                 PRECO_ANUNCIO + " INT NOT NULL, " +
-                CRIACAO_ANUNCIO + " DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP, " +
-                DISPONIBLIDADE_ANUNCIO + " DATE NOT NULL, " +
+                CRIACAO_ANUNCIO + " TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP, " +
+                DISPONIBILIDADE_ANUNCIO + " TEXT NOT NULL, " +
                 DESPESAS_ANUNCIO + " TINYINT NOT NULL, " +
                 DESCRICAO_ANUNCIO + " TEXT NOT NULL );";
 
@@ -61,7 +61,7 @@ public class AnuncioDBHelper extends SQLiteOpenHelper{
      */
     public ArrayList<Anuncio> getAllAnunciosDB(){
         ArrayList<Anuncio> anuncios = new ArrayList<>();
-        Cursor cursor = this.db.query(TABLE_ANUNCIOS, new String[]{ID_ANUNCIO, ID_PROPRIETARIO, ID_CASA, TITULO_ANUNCIO, PRECO_ANUNCIO, DISPONIBLIDADE_ANUNCIO, DESPESAS_ANUNCIO, DESCRICAO_ANUNCIO},
+        Cursor cursor = this.db.query(TABLE_ANUNCIOS, new String[]{ID_ANUNCIO, ID_PROPRIETARIO, ID_CASA, TITULO_ANUNCIO,PRECO_ANUNCIO, CRIACAO_ANUNCIO, DISPONIBILIDADE_ANUNCIO, DESPESAS_ANUNCIO, DESCRICAO_ANUNCIO},
                 null, null, null, null, null);
 
         if(cursor.moveToFirst()){
@@ -76,6 +76,7 @@ public class AnuncioDBHelper extends SQLiteOpenHelper{
                         cursor.getString(6),
                         cursor.getInt(7),
                         cursor.getString(8)
+
                 );
 
                 anuncios.add(auxAnuncio);
@@ -95,7 +96,7 @@ public class AnuncioDBHelper extends SQLiteOpenHelper{
         values.put(TITULO_ANUNCIO, anuncio.getTitulo());
         values.put(PRECO_ANUNCIO, anuncio.getPreco());
         values.put(CRIACAO_ANUNCIO, anuncio.getData_criacao().toString());
-        values.put(DISPONIBLIDADE_ANUNCIO, anuncio.getData_disponiblidade().toString());
+        values.put(DISPONIBILIDADE_ANUNCIO, anuncio.getData_disponibilidade().toString());
         values.put(DESPESAS_ANUNCIO, anuncio.getDespesas_inc());
         values.put(DESCRICAO_ANUNCIO, anuncio.getDescricao());
 

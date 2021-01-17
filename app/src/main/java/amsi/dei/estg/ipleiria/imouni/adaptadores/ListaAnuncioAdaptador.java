@@ -25,6 +25,7 @@ public class ListaAnuncioAdaptador extends BaseAdapter{
 
     @Override
     public int getCount() {
+
         return anuncios.size();
     }
 
@@ -54,7 +55,7 @@ public class ListaAnuncioAdaptador extends BaseAdapter{
             convertView.setTag(viewHolder);
         }
 
-        viewHolder.update(position);
+        viewHolder.update(anuncios.get(position));
 
         return convertView;
     }
@@ -72,11 +73,10 @@ public class ListaAnuncioAdaptador extends BaseAdapter{
             tvListaAnuncio_despesas = view.findViewById(R.id.tvListaAnuncio_despesas);
         }
 
-        public void update(int position){
-            Anuncio anuncio = anuncios.get(position);
+        public void update(Anuncio anuncio){
             tvListaAnuncio_titulo.setText(anuncio.getTitulo());
-            tvListaAnuncio_preco.setText(anuncio.getPreco());
-            tvListaAnuncio_despesas.setText(anuncio.getDespesas_inc());
+            tvListaAnuncio_preco.setText(String.valueOf(anuncio.getPreco()));
+            tvListaAnuncio_despesas.setText(String.valueOf(anuncio.getDespesas_inc()));
             tvListaAnuncio_publicado.setText(anuncio.getData_criacao());
         }
     }

@@ -13,37 +13,34 @@ import java.util.Date;
 
 import amsi.dei.estg.ipleiria.imouni.modelo.Anuncio;
 
-public class AnuncioParserJson{
+public class AnuncioParserJson {
 
-    public static ArrayList<Anuncio> parserJsonAnuncios(JSONArray response){
+    public static ArrayList<Anuncio> parserJsonAnuncios(JSONArray response) {
+
         ArrayList<Anuncio> anuncios = new ArrayList<>();
 
-        Date data_criacao = new Date("data_criacao");
-
-        try{
-            for(int index = 0; index < response.length(); index++){
+        try {
+            for (int index = 0; index < response.length(); index++) {
                 JSONObject anuncio = (JSONObject) response.get(index);
                 anuncios.add(new Anuncio(
-                    anuncio.getInt("id"),
-                    anuncio.getInt("id_proprietario"),
-                    anuncio.getInt("id_casa"),
-                    anuncio.getString("titulo"),
-                    anuncio.getInt("preco"),
-                    anuncio.getString("data_criacao"),
-                    anuncio.getString("data_disponiblidade"),
-                    anuncio.getInt("despesas_inc"),
-                    anuncio.getString("descricao")
-                ));
+                        anuncio.getInt("id"),
+                        anuncio.getInt("id_proprietario"),
+                        anuncio.getInt("id_casa"),
+                        anuncio.getString("titulo"),
+                        anuncio.getInt("preco"),
+                        anuncio.getString("data_criacao"),
+                        anuncio.getString("data_disponibilidade"),
+                        anuncio.getInt("despesas_inc"),
+                        anuncio.getString("descricao")));
             }
-        }
-        catch(JSONException e){
+        } catch (JSONException e) {
             e.printStackTrace();
         }
 
         return anuncios;
     }
 
-    public static Anuncio parserJsonAnuncio(String response){
+    public static Anuncio parserJsonAnuncio(String response) {
         Anuncio auxAnuncio = null;
         try {
             JSONObject anuncio = new JSONObject(response);
@@ -54,23 +51,17 @@ public class AnuncioParserJson{
                     anuncio.getString("titulo"),
                     anuncio.getInt("preco"),
                     anuncio.getString("data_criacao"),
-                    anuncio.getString("data_disponiblidade"),
+                    anuncio.getString("data_disponibilidade"),
                     anuncio.getInt("despesas_inc"),
                     anuncio.getString("descricao")
             );
 
-        }
-        catch (JSONException e) {
+        } catch (JSONException e) {
             e.printStackTrace();
         }
 
-        return  auxAnuncio;
+        return auxAnuncio;
     }
 
-    public  static  boolean isConnectionInternet(Context context){
-        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo ni = cm.getActiveNetworkInfo();
 
-        return ni != null && ni.isConnected();
-    }
 }

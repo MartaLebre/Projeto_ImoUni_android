@@ -7,6 +7,7 @@ import android.net.NetworkInfo;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -62,6 +63,10 @@ public class SingletonGestorImoUni{
         this.userListener = userListener;
     }
 
+    public void setAnunciosListener(AnunciosListener anunciosListener){
+        this.anunciosListener = anunciosListener;
+    }
+
     public Anuncio getAnuncio(int id){
         for(Anuncio anuncio : anuncios){
             if(anuncio.getId() == id)
@@ -86,16 +91,24 @@ public class SingletonGestorImoUni{
         // return new ArrayList<>(anuncios);
     }
 
-    public void adicionarAnunciosDB(ArrayList<Anuncio> anuncios) {
-        anunciosDB.removerAllAnunciosDB();
-        for(Anuncio anuncio : anuncios){
-            anunciosDB.adicionarAnuncioDB(anuncio);
-        }
-    }
-
     public void adicionarAnuncioDB(Anuncio anuncio){
         anunciosDB.adicionarAnuncioDB(anuncio);
     }
+
+    public void adicionarAnunciosDB(ArrayList<Anuncio> anuncios) {
+        anunciosDB.removerAllAnunciosDB();
+        for(Anuncio anuncio : anuncios){
+            adicionarAnuncioDB(anuncio);
+        }
+    }
+    public void removerAnuncioDB(int id){
+        Anuncio anuncio = getAnuncio(id);
+        if(anuncio!=null)
+
+            anunciosDB.removerAnuncioDB(id);
+    }
+
+
 
     /*********** Métodos de acesso à API - Utilizador ***********/
 
@@ -158,17 +171,17 @@ public class SingletonGestorImoUni{
 
     /*********** Métodos de acesso à API - Anúncios ***********/
 
-    public void getAllAnunciosAPI(final Context context, boolean isConnected) {
-        if(!isConnected){
+    public void getAllAnunciosAPI(final Context context) {
+        if(!isConnectedInternet(context)){
             Toast.makeText(context, "Não tem ligação à Internet", Toast.LENGTH_SHORT).show();
-            anuncios = anunciosDB.getAllAnunciosDB();
 
             if(anunciosListener != null){
-                anunciosListener.onRefreshListaAnuncios(anuncios);
+                anunciosListener.onRefreshListaAnuncios(anunciosDB.getAllAnunciosDB());
             }
         }
         else{
             JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, mUrlAPIAnuncios, null, new Response.Listener<JSONArray>(){
+
                 @Override
                 public void onResponse(JSONArray response){
                     anuncios = AnuncioParserJson.parserJsonAnuncios(response);
@@ -184,7 +197,6 @@ public class SingletonGestorImoUni{
                     Toast.makeText(context, error.getMessage(), Toast.LENGTH_LONG).show();
                 }
             });
-
             volleyQueue.add(request);
         }
     }

@@ -1,71 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".vistas.PesquisaFragment">
-
-    <ScrollView
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:context=".vistas.PesquisaFragment">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="158dp"
+            android:orientation="horizontal"
+            android:paddingLeft="25sp"
+            android:paddingTop="10sp"
+            android:paddingRight="25sp"
+            android:paddingBottom="10sp">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="116dp"
+                android:layout_height="128dp"
+                android:layout_weight="0"
+                tools:srcCompat="@drawable/imounilogo" />
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginVertical="20dp"
+                android:layout_width="222dp"
+                android:layout_height="128dp"
+                android:paddingStart="20dp"
                 android:orientation="vertical">
 
-                <SearchView
-                    android:id="@+id/pesquisa"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:iconifiedByDefault="false"
-                    />
+                    android:layout_weight="0"
+                    android:orientation="horizontal">
 
-                <Button
-                    android:id="@+id/btnFiltros"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Filtros"
-                    android:layout_marginVertical="10dp"
-                    android:paddingHorizontal="30dp"
-                    android:textSize="20sp"
-                    />
+                    <TextView
+                        android:id="@+id/tvListaAnuncio_tituloHeader"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0"
+                        android:text="@string/listaAnuncio_titulo"
+                        android:textStyle="bold" />
 
-            </LinearLayout>
+                    <TextView
+                        android:id="@+id/tvListaAnuncio_titulo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        />
+                </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginHorizontal="10dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/tvNumResultados"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingRight="10dp"
-                    android:text="2 Resultados"
-                    android:textSize="20sp" />
-
-                <View
-                    style="@style/DividerHorizontal"
-                    android:layout_marginBottom="5dp" />
-
-                <include
-                    layout="@layout/fragment_lista_anuncio"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="45px"
+                    android:layout_weight="0"
+                    android:orientation="horizontal">
 
+                    <TextView
+                        android:id="@+id/tvListaAnuncio_precoHeader"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0"
+                        android:text="@string/listaAnuncio_preco"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvListaAnuncio_preco"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="45px"
+                    android:layout_weight="0"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvListaAnuncio_despesasHeader"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0"
+                        android:text="@string/listaAnuncio_despesas"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvListaAnuncio_despesas"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="45px"
+                    android:layout_weight="0"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvListaAnuncio_publicadoHeader"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0"
+                        android:text="@string/listaAnuncio_publicado"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvListaAnuncio_publicado"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+                </LinearLayout>
             </LinearLayout>
+
         </LinearLayout>
-    </ScrollView>
-
 </FrameLayout>

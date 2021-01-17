@@ -20,6 +20,7 @@
             android:id="@+id/imageView"
             android:layout_width="116dp"
             android:layout_height="128dp"
+            android:layout_weight="0"
             tools:srcCompat="@drawable/imounilogo" />
 
         <LinearLayout
@@ -38,6 +39,7 @@
                     android:id="@+id/tvListaAnuncio_tituloHeader"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_weight="0"
                     android:text="@string/listaAnuncio_titulo"
                     android:textStyle="bold" />
 
@@ -45,6 +47,7 @@
                     android:id="@+id/tvListaAnuncio_titulo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                         />
             </LinearLayout>
 

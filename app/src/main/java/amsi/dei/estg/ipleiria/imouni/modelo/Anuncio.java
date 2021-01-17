@@ -9,18 +9,18 @@ public class Anuncio{
     private String titulo;
     private int preco;
     private String data_criacao;
-    private String data_disponiblidade;
+    private String data_disponibilidade;
     private int despesas_inc;
     private String descricao;
 
-    public Anuncio(int id, int id_proprietario, int id_casa, String titulo, int preco, String data_criacao, String data_disponiblidade, int despesas_inc, String descricao){
+    public Anuncio(int id, int id_proprietario, int id_casa, String titulo, int preco, String data_criacao, String data_disponibilidade, int despesas_inc, String descricao){
         this.id = id;
         this.id_proprietario = id_proprietario;
         this.id_casa = id_casa;
         this.titulo = titulo;
         this.preco = preco;
         this.data_criacao = data_criacao;
-        this.data_disponiblidade = data_disponiblidade;
+        this.data_disponibilidade = data_disponibilidade;
         this.despesas_inc = despesas_inc;
         this.descricao = descricao;
     }
@@ -73,12 +73,12 @@ public class Anuncio{
         this.data_criacao = data_criacao;
     }
 
-    public String getData_disponiblidade(){
-        return data_disponiblidade;
+    public String getData_disponibilidade(){
+        return data_disponibilidade;
     }
 
-    public void setData_disponiblidade(String data_disponiblidade){
-        this.data_disponiblidade = data_disponiblidade;
+    public void setData_disponibilidade(String data_disponibilidade){
+        this.data_disponibilidade = data_disponibilidade;
     }
 
     public int getDespesas_inc(){
