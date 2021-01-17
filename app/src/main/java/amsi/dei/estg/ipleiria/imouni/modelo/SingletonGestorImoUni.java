@@ -30,9 +30,9 @@ import amsi.dei.estg.ipleiria.imouni.utils.AnuncioParserJson;
 
 public class SingletonGestorImoUni{
 
-    private static final String mUrlAPIRegistarUser = "http://192.168.1.73:8080/user/registo";
-    private static final String mUrlAPIUserLogin = "http://192.168.1.73:8080/user/login/";
-    private static final String mUrlAPIAnuncios = "http://192.168.1.73:8080/anuncios/";
+    private static final String mUrlAPIRegistarUser = "http://192.168.1.68:8080/user/registo";
+    private static final String mUrlAPIUserLogin = "http://192.168.1.68:8080/user/login/";
+    private static final String mUrlAPIAnuncios = "http://192.168.1.68:8080/anuncios/";
 
     private ArrayList<Utilizador> utilizadores;
     public UserListener userListener;
@@ -124,10 +124,6 @@ public class SingletonGestorImoUni{
                 params.put("password", utilizador.getPassword());
                 params.put("numero_telemovel", utilizador.getNumeroTelemovel());
                 params.put("genero", utilizador.getGenero());
-
-                //JSONObject userJSON = new JSONObject(params);
-
-                //Log.e("USERJSON",userJSON.toString());
 
                 return params;
             }

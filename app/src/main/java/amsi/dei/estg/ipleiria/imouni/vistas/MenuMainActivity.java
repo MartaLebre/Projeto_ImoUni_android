@@ -1,6 +1,8 @@
 package amsi.dei.estg.ipleiria.imouni.vistas;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -55,6 +57,9 @@ public class MenuMainActivity extends AppCompatActivity implements NavigationVie
 }
     @Override
     public boolean onNavigationItemSelected(MenuItem menuItem) {
+        SharedPreferences sharedPrefInfoUser = getSharedPreferences(MenuMainActivity.PREF_INFO_USER, Context.MODE_PRIVATE);
+        token = sharedPrefInfoUser.getString(TOKEN, null);
+        Fragment fragment = null;
         switch (menuItem .getItemId()) {
             case R.id.nav_Inicial:
                 setTitle(menuItem.getTitle());
