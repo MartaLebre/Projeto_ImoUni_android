@@ -49,11 +49,11 @@ public class LoginFragment extends Fragment implements UserListener {
                     String username = mUsername.getText().toString();
                     String password = mPassword.getText().toString();
 
-        SingletonGestorImoUni.getInstance(getContext()).loginUserAPI(username, password, getContext());
-    }
+                    SingletonGestorImoUni.getInstance(getContext()).loginUserAPI(username, password, getContext());
+                }
 
-}
-});
+            }
+        });
         Button btnRegistar = view.findViewById(R.id.btnSignup);
         btnRegistar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,8 +62,8 @@ public class LoginFragment extends Fragment implements UserListener {
                 fragmentManager.beginTransaction().replace(R.id.contentFragment, fragment).addToBackStack(null).commit();
             }
         });
-return view;
-}
+        return view;
+    }
 
     @Override
     public void onUserRegistado(String response) {
@@ -79,7 +79,6 @@ return view;
     public void onApagarConta(String response) {
 
     }
-
 
 
     @Override

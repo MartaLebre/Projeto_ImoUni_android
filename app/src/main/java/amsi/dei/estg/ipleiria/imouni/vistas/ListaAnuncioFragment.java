@@ -77,13 +77,12 @@ public class ListaAnuncioFragment extends Fragment implements SwipeRefreshLayout
                     listaAnuncios = SingletonGestorImoUni.getInstance(getContext()).getAnunciosDB();
                     lvListaAnuncios.setAdapter(new ListaAnuncioAdaptador(getContext(), listaAnuncios));
                     Toast.makeText(getContext(), "Anuncio adicionado com sucesso", Toast.LENGTH_LONG).show();
-                    //Snackbar.make(getView(),"Livro Adicionado com sucesso", Snackbar.LENGTH_LONG).show();
                     break;
                 case EDITAR:
                     listaAnuncios = SingletonGestorImoUni.getInstance(getContext()).getAnunciosDB();
                     lvListaAnuncios.setAdapter(new ListaAnuncioAdaptador(getContext(), listaAnuncios));
-                    //Toast.makeText(getContext(), "Livro Editado com sucesso", Toast.LENGTH_LONG).show();
-                    Snackbar.make(getView(),"Livro Editado com sucesso", Snackbar.LENGTH_LONG).show();
+                    Toast.makeText(getContext(), "Anuncio Editado com sucesso", Toast.LENGTH_LONG).show();
+
 
                     break;
             }
