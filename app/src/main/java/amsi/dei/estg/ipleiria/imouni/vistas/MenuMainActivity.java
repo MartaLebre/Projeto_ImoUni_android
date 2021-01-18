@@ -84,6 +84,7 @@ public class MenuMainActivity extends AppCompatActivity implements NavigationVie
                 break;
             case R.id.nav_anucios:
                 fragment = new ListaAnuncioFragment();
+                setTitle(menuItem.getTitle());
                 break;
             case R.id.nav_editPerfil:
                 if(token != null) {

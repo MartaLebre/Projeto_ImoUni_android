@@ -53,18 +53,6 @@
     <string name="addhorario_btnAdd">Adiconar</string>
 
     <string name="main_tvTextInicial">Encontre uma casa nas melhores cidades universitárias</string>
-    <string name="main_cidadeN1">Leiria</string>
-    <string name="main_cidadeN2">Coimbra</string>
-    <string name="main_cidadeN3">Porto</string>
-    <string name="main_cidadeN4">Lisboa</string>
-
-    <string-array name="spDia">
-        <item>Seg</item>
-        <item>Ter</item>
-        <item>Qua</item>
-        <item>Qui</item>
-        <item>Sex</item>
-    </string-array>
 
     <!-- Anuncio -->
     <string name="anuncio_titulo">Apartamento T1 em Coimbra</string>
