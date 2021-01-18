@@ -1,14 +1,17 @@
 package amsi.dei.estg.ipleiria.imouni.vistas;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import amsi.dei.estg.ipleiria.imouni.R;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,6 +28,10 @@ public class MainFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private Button btnAnuncio;
+    Fragment fragment = null;
+    private FragmentManager fragmentManager;
 
     public MainFragment() {
         // Required empty public constructor
@@ -58,10 +65,25 @@ public class MainFragment extends Fragment {
 
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_main, container, false);
+        View view = inflater.inflate(R.layout.fragment_main, container, false);
+        setHasOptionsMenu(true);
+
+        fragmentManager = getFragmentManager();
+
+        btnAnuncio = view.findViewById(R.id.btnAnuncios);
+        btnAnuncio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment fragment = new ListaAnuncioFragment();
+                fragmentManager.beginTransaction().replace(R.id.contentFragment, fragment).addToBackStack(null).commit();
+            }
+        });
+
+        return view;
     }
 }

@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import amsi.dei.estg.ipleiria.imouni.modelo.Utilizador;
 
+
 public class UtilizadoresParserJson {
     public static ArrayList<Utilizador> parserJsonUtilizadores(JSONArray response) {
 

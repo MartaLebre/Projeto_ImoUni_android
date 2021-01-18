@@ -1,11 +1,5 @@
 package amsi.dei.estg.ipleiria.imouni.vistas;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Patterns;
@@ -18,14 +12,9 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-
-import java.util.HashMap;
-import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -33,6 +22,7 @@ import amsi.dei.estg.ipleiria.imouni.R;
 import amsi.dei.estg.ipleiria.imouni.listeners.UserListener;
 import amsi.dei.estg.ipleiria.imouni.modelo.SingletonGestorImoUni;
 import amsi.dei.estg.ipleiria.imouni.modelo.Utilizador;
+
 
 public class SignupFragment extends Fragment implements UserListener {
 
@@ -48,7 +38,6 @@ public class SignupFragment extends Fragment implements UserListener {
     //private Utilizador utilizador;
     public UserListener userListener;
 
-    private static final String mUrlAPIRegistarUser = "http://192.168.1.77:8080/user/registo";
     private RadioButton rbtnMasculino, rbtnFeminino;
     private Utilizador utilizador;
     private Pattern pattern;
@@ -202,6 +191,17 @@ public class SignupFragment extends Fragment implements UserListener {
                 break;
         }
     }
+
+    @Override
+    public void onRefreshDetalhes(String response) {
+
+    }
+
+    @Override
+    public void onApagarConta(String response) {
+
+    }
+
 
     @Override
     public void onValidateLogin(String username, String password) {

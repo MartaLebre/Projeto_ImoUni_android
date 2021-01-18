@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -13,19 +12,20 @@ import java.util.ArrayList;
 import amsi.dei.estg.ipleiria.imouni.R;
 import amsi.dei.estg.ipleiria.imouni.modelo.Anuncio;
 
-public class ListaAnuncioAdaptador extends BaseAdapter{
+
+public class ListaAnuncioAdaptador extends BaseAdapter {
+
     private Context context;
-    private LayoutInflater layoutInflater;
+    private LayoutInflater inflater;
     private ArrayList<Anuncio> anuncios;
 
-    public ListaAnuncioAdaptador(Context context, ArrayList<Anuncio> anuncios){
+    public ListaAnuncioAdaptador(Context context, ArrayList<Anuncio> anuncios) {
         this.context = context;
         this.anuncios = anuncios;
     }
 
     @Override
     public int getCount() {
-
         return anuncios.size();
     }
 
@@ -41,43 +41,45 @@ public class ListaAnuncioAdaptador extends BaseAdapter{
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        if(layoutInflater == null){
-            layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        if(inflater == null)
+        {
+            inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         }
-        if(convertView == null){
-            convertView = layoutInflater.inflate(R.layout.item_lista_anuncio, null);
-        }
-
-        /** otimização **/
-        ViewHolderLista viewHolder = (ViewHolderLista) convertView.getTag();
-        if (viewHolder == null) {
-            viewHolder = new ViewHolderLista(convertView);
-            convertView.setTag(viewHolder);
+        if(convertView == null)
+        {
+            convertView = inflater.inflate(R.layout.item_lista_anuncio, null);
         }
 
-        viewHolder.update(anuncios.get(position));
+        //otimização
+
+        ViewHolderLista viewHolderLista = (ViewHolderLista)convertView.getTag();
+        if(viewHolderLista == null){
+            viewHolderLista = new ViewHolderLista(convertView);
+            convertView.setTag(viewHolderLista);
+        }
+        viewHolderLista.update(anuncios.get(position));
+
 
         return convertView;
     }
 
-    private class ViewHolderLista {
-        TextView tvListaAnuncio_titulo;
-        TextView tvListaAnuncio_preco;
-        TextView tvListaAnuncio_despesas;
-        TextView tvListaAnuncio_publicado;
+    private class ViewHolderLista{
+        private TextView tvTitulo, tvPreco, tvPublicado, tvDescricao;
+
 
         public ViewHolderLista(View view){
-            tvListaAnuncio_titulo = view.findViewById(R.id.tvListaAnuncio_titulo);
-            tvListaAnuncio_preco = view.findViewById(R.id.tvListaAnuncio_preco);
-            tvListaAnuncio_publicado = view.findViewById(R.id.tvListaAnuncio_publicado);
-            tvListaAnuncio_despesas = view.findViewById(R.id.tvListaAnuncio_despesas);
+            tvTitulo = view.findViewById(R.id.txtTitulo);
+            tvPreco = view.findViewById(R.id.txtDataPublicacao);
+            tvPublicado = view.findViewById(R.id.txtPreco);
+            tvDescricao = view.findViewById(R.id.txxDescricao);
         }
 
         public void update(Anuncio anuncio){
-            tvListaAnuncio_titulo.setText(anuncio.getTitulo());
-            tvListaAnuncio_preco.setText(String.valueOf(anuncio.getPreco()));
-            tvListaAnuncio_despesas.setText(String.valueOf(anuncio.getDespesas_inc()));
-            tvListaAnuncio_publicado.setText(anuncio.getData_criacao());
+            tvTitulo.setText(anuncio.getTitulo());
+            tvPreco.setText(String.valueOf(anuncio.getPreco()));
+            tvPublicado.setText(anuncio.getData_criacao());
+            tvDescricao.setText(anuncio.getDescricao());
+
         }
     }
 }

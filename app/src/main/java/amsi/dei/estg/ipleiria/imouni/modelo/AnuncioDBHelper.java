@@ -6,16 +6,15 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import androidx.annotation.Nullable;
-
 import java.util.ArrayList;
 
-public class AnuncioDBHelper extends SQLiteOpenHelper{
-    private static final String DB_NAME = "anunciosDB";
-    private static final int DB_VERSION = 1;
+public class AnuncioDBHelper extends SQLiteOpenHelper {
 
-    private static final String TABLE_ANUNCIOS = "Anuncios";
-    private static final String ID_ANUNCIO = "id";
+    private static final String DB_NAME="anunciosDB";
+    private static final int DB_VERSION=1;
+
+    private static final String TABLE_ANUNCIOS="Anuncios";
+    private static final String ID_ANUNCIO="id";
     private static final String ID_PROPRIETARIO = "id_proprietario";
     private static final String ID_CASA = "id_casa";
     private static final String TITULO_ANUNCIO = "titulo";
@@ -27,13 +26,13 @@ public class AnuncioDBHelper extends SQLiteOpenHelper{
 
     private final SQLiteDatabase db;
 
-    public AnuncioDBHelper(@Nullable Context context){
+    public AnuncioDBHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
-        this.db = getWritableDatabase();
+        this.db=getWritableDatabase();
     }
 
     @Override
-    public void onCreate(SQLiteDatabase db){
+    public void onCreate(SQLiteDatabase db) {
         String sqlCreateTableAnuncio = "CREATE TABLE " +
                 TABLE_ANUNCIOS + " (" +
                 ID_ANUNCIO + " INT PRIMARY KEY, " +
@@ -51,23 +50,74 @@ public class AnuncioDBHelper extends SQLiteOpenHelper{
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        String sqlDropTableAnuncio = "DROP TABLE IF EXISTS " + TABLE_ANUNCIOS;
-        db.execSQL(sqlDropTableAnuncio);
+        String sqlDropTableLivro="DROP TABLE IF EXISTS "+ TABLE_ANUNCIOS;
+        db.execSQL(sqlDropTableLivro);
         this.onCreate(db);
     }
 
     /**
-     * SELECT
+     * INSERT
+     * o método insert() -> return idlivro (long), se houver erro devolve -1
+     * @param anuncio
+     * @return
      */
-    public ArrayList<Anuncio> getAllAnunciosDB(){
+    public void adicionarAnuncioBD(Anuncio anuncio) {
+        ContentValues values = new ContentValues();
+        values.put(ID_ANUNCIO, anuncio.getId());
+        values.put(ID_PROPRIETARIO, anuncio.getId_proprietario());
+        values.put(ID_CASA, anuncio.getIdcasa());
+        values.put(TITULO_ANUNCIO, anuncio.getTitulo());
+        values.put(PRECO_ANUNCIO, anuncio.getPreco());
+        values.put(CRIACAO_ANUNCIO, anuncio.getData_criacao());
+        values.put(DISPONIBILIDADE_ANUNCIO, anuncio.getData_disponibilidade());
+        values.put(DESPESAS_ANUNCIO, anuncio.getDespesas_inc());
+        values.put(DESCRICAO_ANUNCIO, anuncio.getDescricao());
+
+        this.db.insert(TABLE_ANUNCIOS, null, values);
+
+    }
+    /**
+     * UPDATE
+     * o método update() -> return o nº de linhas alteradas
+     * @param anuncio
+     * @return
+     */
+    public boolean editarAnuncioBD(Anuncio anuncio){
+        ContentValues values = new ContentValues();
+        values.put(TITULO_ANUNCIO, anuncio.getTitulo());
+        values.put(PRECO_ANUNCIO, anuncio.getPreco());
+        values.put(DESCRICAO_ANUNCIO, anuncio.getDescricao());
+
+
+
+        return this.db.update(TABLE_ANUNCIOS, values, "id=?", new String[]{anuncio.getId() + ""}) > 0;
+    }
+    /**
+     * DELETE
+     * @param id
+     * @return
+     */
+    public boolean removerAnuncioBD(int id){
+        return this.db.delete(TABLE_ANUNCIOS, "id=?", new String[]{id + ""}) > 0;
+    }
+
+    public void removerAllAnunciosBD(){
+         this.db.delete(TABLE_ANUNCIOS,  null, null);
+    }
+
+    /**
+     * SELECT
+     * this.db.rawQuery("codigo sql", null) -> suscetivel de SQLINJECTION
+     * @return
+     */
+    public ArrayList<Anuncio> getAllAnunciosBD(){
         ArrayList<Anuncio> anuncios = new ArrayList<>();
-        Cursor cursor = this.db.query(TABLE_ANUNCIOS, new String[]{ID_ANUNCIO, ID_PROPRIETARIO, ID_CASA, TITULO_ANUNCIO,PRECO_ANUNCIO, CRIACAO_ANUNCIO, DISPONIBILIDADE_ANUNCIO, DESPESAS_ANUNCIO, DESCRICAO_ANUNCIO},
+        Cursor cursor = this.db.query(TABLE_ANUNCIOS, new String[]{ID_ANUNCIO, ID_PROPRIETARIO, ID_CASA, TITULO_ANUNCIO, PRECO_ANUNCIO, CRIACAO_ANUNCIO,DISPONIBILIDADE_ANUNCIO,DESPESAS_ANUNCIO,DESCRICAO_ANUNCIO},
                 null, null, null, null, null);
 
         if(cursor.moveToFirst()){
             do{
-                Anuncio auxAnuncio = new Anuncio(
-                        cursor.getInt(0),
+                Anuncio auxAuncio = new Anuncio(cursor.getInt(0),
                         cursor.getInt(1),
                         cursor.getInt(2),
                         cursor.getString(3),
@@ -75,42 +125,10 @@ public class AnuncioDBHelper extends SQLiteOpenHelper{
                         cursor.getString(5),
                         cursor.getString(6),
                         cursor.getInt(7),
-                        cursor.getString(8)
-
-                );
-
-                anuncios.add(auxAnuncio);
+                        cursor.getString(8));
+                anuncios.add(auxAuncio);
             }while(cursor.moveToNext());
         }
         return anuncios;
-    }
-
-    /**
-     * INSERT
-     */
-    public void adicionarAnuncioDB(Anuncio anuncio) {
-        ContentValues values = new ContentValues();
-        values.put(ID_ANUNCIO, anuncio.getId());
-        values.put(ID_PROPRIETARIO, anuncio.getId_proprietario());
-        values.put(ID_CASA, anuncio.getId_casa());
-        values.put(TITULO_ANUNCIO, anuncio.getTitulo());
-        values.put(PRECO_ANUNCIO, anuncio.getPreco());
-        values.put(CRIACAO_ANUNCIO, anuncio.getData_criacao().toString());
-        values.put(DISPONIBILIDADE_ANUNCIO, anuncio.getData_disponibilidade().toString());
-        values.put(DESPESAS_ANUNCIO, anuncio.getDespesas_inc());
-        values.put(DESCRICAO_ANUNCIO, anuncio.getDescricao());
-
-        this.db.insert(TABLE_ANUNCIOS, null, values);
-    }
-
-    /**
-     * DELETE
-     */
-    public boolean removerAnuncioDB(int id){
-        return this.db.delete(TABLE_ANUNCIOS, "id= ?", new String[]{id + ""}) > 0;
-    }
-
-    public void removerAllAnunciosDB(){
-        this.db.delete(TABLE_ANUNCIOS,  null, null);
     }
 }

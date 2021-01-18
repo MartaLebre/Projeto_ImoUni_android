@@ -5,34 +5,19 @@
 
     <group android:checkableBehavior ="single">
         <item
-            android:id="@+id/nav_Inicial"
-            android:icon="@drawable/common_full_open_on_phone"
-            android:title="Página Inicial" />
-
+            android:id="@+id/nav_inicial"
+            android:title="Inicial" />
         <item
-            android:id="@+id/nav_PesquisaAnuncio"
-            android:icon="@drawable/common_full_open_on_phone"
-            android:title="Pesquisa Anuncio" />
-
-
-        <item android:title="Adicionar Anúncio">
-            <menu>
-                <item
-                    android:id="@+id/nav_addAnuncio"
-                    android:icon="@drawable/common_full_open_on_phone"
-                    android:title="Adicionar Anuncio" />
-            </menu>
-        </item>
-
-        <item android:title="Perfil">
-            <menu>
-                <item
-                    android:id="@+id/nav_editPerfil"
-                    android:icon="@drawable/common_full_open_on_phone"
-                    android:title="Editar Perfil" />
-            </menu>
-        </item>
+            android:id="@+id/nav_anucios"
+            android:title="Lista Anúncios" />
     </group>
 
-
+    <item android:title="Perfil">
+        <menu>
+        <item
+            android:id="@+id/nav_editPerfil"
+            android:title="Editar Perfil"
+            />
+        </menu>
+    </item>
 </menu>

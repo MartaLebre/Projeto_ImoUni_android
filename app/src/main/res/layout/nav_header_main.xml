@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="160dp"
-    android:background="@color/common_google_signin_btn_text_dark"
+    android:background="@color/cardview_shadow_end_color"
     android:gravity="bottom"
     android:orientation="vertical"
     android:padding="16dp"
@@ -14,7 +14,7 @@
         android:id="@+id/nav_header_image"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/common_google_signin_btn_text_dark"
+        android:background="@color/cardview_shadow_end_color"
         app:srcCompat="@drawable/imounilogo"
         tools:ignore="VectorDrawableCompat" />
 
