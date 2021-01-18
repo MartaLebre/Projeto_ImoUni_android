@@ -55,17 +55,17 @@ public class DetalhesAnuncioActivity extends AppCompatActivity implements Anunci
 
 
         if(titulo.length()<3){
-            etTitulo.setError("Título inválido");
+            etTitulo.setError("@string/detalhesAnuncioActivity_titulo");
             return false;
         }
 
         if(preco.length()<3){
-            etPreco.setError("Preço inválido");
+            etPreco.setError("@string/detalhesAnuncioActivity_preco");
             return false;
         }
 
         if(descricao.length()<10){
-            etDescricao.setError("Descrição inválida");
+            etDescricao.setError("@string/detalhesAnuncioActivity_descricao");
             return false;
         }
 

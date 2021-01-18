@@ -88,9 +88,9 @@ return view;
             guardarInfoSharedPref(token, username);
             Fragment fragment = new MainFragment();
             fragmentManager.beginTransaction().replace(R.id.contentFragment, fragment).addToBackStack(null).commit();
-            Toast.makeText(getContext(), "Bem Vindo!", Toast.LENGTH_LONG).show();
+            Toast.makeText(getContext(), "@string/LoginFragment_onValidateLogin", Toast.LENGTH_LONG).show();
         } else {
-            mPassword.setError("Utilizador ou Palavra-Passe Incorretos!");
+            mPassword.setError("@string/LoginFragment_onValidateLoginERROR");
         }
     }
 

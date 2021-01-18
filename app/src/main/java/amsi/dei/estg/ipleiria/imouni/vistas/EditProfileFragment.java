@@ -114,7 +114,7 @@ public class EditProfileFragment extends Fragment implements UserListener {
             case "true":
                 Fragment fragment = new MainFragment();
                 fragmentManager.beginTransaction().replace(R.id.contentFragment, fragment).addToBackStack(null).commit();
-                Toast.makeText(getContext(), "A sua conta foi atualizada com sucesso!", Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), "@string/EditProfileFragment_onRefreshDetalhes", Toast.LENGTH_LONG).show();
                 break;
         }
     }
@@ -126,7 +126,7 @@ public class EditProfileFragment extends Fragment implements UserListener {
             case "null":
                 Fragment fragment = new SignupFragment();
                 fragmentManager.beginTransaction().replace(R.id.contentFragment, fragment).addToBackStack(null).commit();
-                Toast.makeText(getContext(), "A sua conta foi apagada com sucesso!", Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), "@string/EditProfileFragment_onApagarConta", Toast.LENGTH_LONG).show();
                 break;
         }
 

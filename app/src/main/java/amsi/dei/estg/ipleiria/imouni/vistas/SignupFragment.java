@@ -76,37 +76,37 @@ public class SignupFragment extends Fragment implements UserListener {
                      String genero = "";
 
                     if (rbtnMasculino.isChecked()) {
-                        genero = "masculino";
+                        genero = "@string/SignupFragment_rbtnMasculino";
                     } else if (rbtnFeminino.isChecked()) {
-                        genero = "feminino";
+                        genero = "@string/SignupFragment_rbtnFeminino";
                     }
 
                     if (!isPrimeiroNomeValido(mPrimeiroNome)) {
-                        primeiroNome.setError("Primeiro nome inválido");
+                        primeiroNome.setError("@string/SignupFragment_primeiroNome");
                         return;
                     }
 
                     if (!isUltimoNomeValido(mUltimoNome)) {
-                        ultimoNome.setError("Ultimo nome inválido");
+                        ultimoNome.setError("@string/SignupFragment_ultimoNome");
                         return;
                     }
 
                     if (!isUsernameValido(mUsername)) {
-                        username.setError("Nome de Utilizador Inválido");
+                        username.setError("@string/SignupFragment_username");
                         return;
                     }
 
                     if (!isEmailValido(mEmail)) {
-                        email.setError("Email inválido");
+                        email.setError("@string/SignupFragment_email");
                         return;
                     }
 
                     if (!isPasswordValida(mPassword)) {
-                        password.setError("Palavra Passe Inválida, é necessário ter mais de 8 caractéres");
+                        password.setError("@string/SignupFragment_password");
                         return;
                     }
                     if (!isNumeroTelemovelValido(mNumeroTelemovel)) {
-                        numeroTelemovel.setError("Número de telemóvel inválido");
+                        numeroTelemovel.setError("@string/SignupFragment_numeroTelemovel");
                         return;
                     }
 
@@ -116,7 +116,7 @@ public class SignupFragment extends Fragment implements UserListener {
                     SingletonGestorImoUni.getInstance(getContext()).registarUserAPI(utilizador, getContext());
 
                 }else{
-                    Toast.makeText(getContext(), "Sem ligação à Internet!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(), "@string/SignupFragment_error", Toast.LENGTH_LONG).show();
 
                 }
             }
@@ -176,18 +176,18 @@ public class SignupFragment extends Fragment implements UserListener {
         switch (response) {
             case "0":
                 Log.e("eee", "1111");
-                email.setError("Este email já se encontra registado!");
+                email.setError("@string/SignupFragment_onUserRegistadoEmail");
                 break;
             case "1":
-                username.setError("Este nome de utilizador já se encontra registado!");
+                username.setError("@string/SignupFragment_onUserRegistadoUsername");
                 break;
             case "2":
-                numeroTelemovel.setError("Este numero de telemovel já se encontra registado!");
+                numeroTelemovel.setError("@string/SignupFragment_onUserRegistadoNumeroTelemovel");
                 break;
             case "false":
                 Fragment fragment = new LoginFragment();
                 fragmentManager.beginTransaction().replace(R.id.contentFragment, fragment).addToBackStack(null).commit();
-                Toast.makeText(getContext(), "Bem Vindo(a), a sua conta foi registada com sucesso!", Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), "@string/SignupFragment_onUserRegistadoFalse", Toast.LENGTH_LONG).show();
                 break;
         }
     }
