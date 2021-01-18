@@ -57,7 +57,7 @@ public class MenuMainActivity extends AppCompatActivity implements NavigationVie
         drawer.addDrawerListener(toggle);
 
         fragmentManager = getSupportFragmentManager();
-        carregarCabecalho();
+
         navigationView.setNavigationItemSelectedListener(this);
         carregarFragmento();
     }
@@ -76,7 +76,7 @@ public class MenuMainActivity extends AppCompatActivity implements NavigationVie
 
     @Override
     public boolean onNavigationItemSelected(MenuItem menuItem) {
-
+        carregarCabecalho();
         switch (menuItem .getItemId()) {
             case R.id.nav_inicial:
                 setTitle(menuItem.getTitle());
