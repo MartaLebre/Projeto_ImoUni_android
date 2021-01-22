@@ -110,17 +110,10 @@ public class SingletonGestorImoUni {
     }
 
     public void editarAnuncioBD(Anuncio livro){
-        Anuncio livroAux = getAnuncio(livro.getId());
-        if(livroAux != null)
-            anunciosBD.editarAnuncioBD(livroAux);
-            /*
-            if(livrosBD.editarLivroBD(livroAux)) {
-                livroAux.setTitulo(livro.getTitulo());
-                livroAux.setAutor(livro.getAutor());
-                livroAux.setCapa(livro.getCapa());
-                livroAux.setSerie(livro.getSerie());
-                livroAux.setAno(livro.getAno());
-              */
+        Anuncio anuncioAux = getAnuncio(livro.getId());
+        if(anuncioAux != null)
+            anunciosBD.editarAnuncioBD(anuncioAux);
+
     }
 
     /*********** Métodos de acesso à API - Utilizador ***********/
