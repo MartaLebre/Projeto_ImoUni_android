@@ -18,9 +18,4 @@
         app:srcCompat="@drawable/imounilogo"
         tools:ignore="VectorDrawableCompat" />
 
-    <TextView
-        android:id="@+id/nomeUtilizador"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
 </LinearLayout>
