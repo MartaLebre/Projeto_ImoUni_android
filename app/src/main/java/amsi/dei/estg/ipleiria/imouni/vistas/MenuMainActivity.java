@@ -63,7 +63,7 @@ public class MenuMainActivity extends AppCompatActivity implements NavigationVie
     }
     private void carregarFragmento(){
         fragment = new MainFragment();
-        setTitle("Inicial");
+        setTitle("@string/MenuMainActivity_carregarFragmento");
         if(fragment != null)
             fragmentManager.beginTransaction().replace(R.id.contentFragment, fragment).commit();
     }

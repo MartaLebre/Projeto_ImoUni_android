@@ -1,12 +1,15 @@
 <resources>
     <string name="app_name">ImoUni</string>
     <string name="app_preferences" translatable="false">techpower</string>
+
     <!-- alterar -->
     <string name="ndOpen">Open</string>
     <string name="ndClose">Close</string>
     <string name="main">Página Inicial</string>
+
     <!-- Login -->
     <string name="login_tvTitulo">Login</string>
+    <string name="login_tvUsername">Username</string>
     <string name="login_tvEmail">Email</string>
     <string name="login_tvPassword">Password</string>
     <string name="login_btnLogin">Login</string>
@@ -19,6 +22,9 @@
     <string name="signup_tvNome">Nome Completo</string>
     <string name="signup_hPrimeiro">Primeiro nome</string>
     <string name="signup_hUltimo">Ultimo nome</string>
+    <string name="signup_rbtnMasculino">Masculino</string>
+    <string name="signup_rbtnFeminino">Feminino</string>
+    <string name="signup_tvUsername">Username</string>
     <string name="signup_tvEmail">Email</string>
     <string name="signup_tvTelemovel">Número de telemóvel</string>
     <string name="signup_tvGenero">Género</string>
@@ -38,21 +44,13 @@
 
     <!-- Edit profile -->
     <string name="editprofile_tvTitulo">Editar profile</string>
-    <string name="editprofile_tvEmail">Email</string>
     <string name="editprofile_tvTelemovel">Número de telemóvel</string>
     <string name="editprofile_tvPassword">Password</string>
-    <string name="editprofile_tvHorario">Horário de visitas</string>
-    <string name="editprofile_btnAdd">Adiconar</string>
     <string name="editprofile_btnSave">Atualizar</string>
-
-    <!-- Add horario -->
-    <string name="addhorario_tvTitulo">Adicionar disponibilidade</string>
-    <string name="addhorario_tvDia">Dia de semana</string>
-    <string name="addhorario_tvInicio">Hora de inicio</string>
-    <string name="addhorario_tvFim">Hora de fim</string>
-    <string name="addhorario_btnAdd">Adiconar</string>
+    <string name="editprofile_btnDel">Apagar Conta</string>
 
     <string name="main_tvTextInicial">Encontre uma casa nas melhores cidades universitárias</string>
+    <string name="main_tvAnuncios">Anúncios</string>
 
     <!-- Anuncio -->
     <string name="anuncio_titulo">Apartamento T1 em Coimbra</string>
@@ -176,6 +174,7 @@
 
     <string name="addanuncio_publicar">publicar</string>
     <string name="title_activity_add_anuncio">AddAnuncioActivity</string>
+
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
@@ -190,7 +189,32 @@
 
     <!-- Lista anúncios -->
     <string name="listaAnuncio_titulo">Título: </string>
-    <string name="listaAnuncio_preco">Preço: </string>
-    <string name="listaAnuncio_despesas">Despesas incluídas: </string>
     <string name="listaAnuncio_publicado">Publicado: </string>
+    <string name="listaAnuncio_preco">Preço: </string>
+    <string name="listaAnuncio_descricao">Descrição: </string>
+
+    <!-- Vistas -->
+    <string name="detalhesAnuncioActivity_titulo">Título inválido</string>
+    <string name="detalhesAnuncioActivity_preco">Preço inválido</string>
+    <string name="detalhesAnuncioActivity_descricao">Descrição inválida</string>
+    <string name="EditProfileFragment_onRefreshDetalhes">A sua conta foi atualizada com sucesso!</string>
+    <string name="EditProfileFragment_onApagarConta">A sua conta foi apagada com sucesso!</string>
+    <string name="ListaAnuncioFragment_onActivityResultADICIONAR">Anuncio adicionado com sucesso</string>
+    <string name="ListaAnuncioFragment_onActivityResultEDITAR">Anúncio Editado com sucesso</string>
+    <string name="LoginFragment_onValidateLogin">Bem Vindo!</string>
+    <string name="LoginFragment_onValidateLoginERROR">Utilizador ou Palavra-Passe Incorretos!</string>
+    <string name="MenuMainActivity_carregarFragmento">Inicial</string>
+    <string name="SignupFragment_rbtnMasculino">masculino</string>
+    <string name="SignupFragment_rbtnFeminino">feminino</string>
+    <string name="SignupFragment_primeiroNome">Primeiro nome inválido</string>
+    <string name="SignupFragment_ultimoNome">Ultimo nome inválido</string>
+    <string name="SignupFragment_username">Nome de Utilizador Inválido</string>
+    <string name="SignupFragment_email">Email inválido</string>
+    <string name="SignupFragment_password">Palavra Passe Inválida, é necessário ter mais de 8 caractéres</string>
+    <string name="SignupFragment_numeroTelemovel">Número de telemóvel inválido</string>
+    <string name="SignupFragment_error">Sem ligação à Internet!</string>
+    <string name="SignupFragment_onUserRegistadoEmail">Este email já se encontra registado!</string>
+    <string name="SignupFragment_onUserRegistadoUsername">Este nome de utilizador já se encontra registado!</string>
+    <string name="SignupFragment_onUserRegistadoNumeroTelemovel">Este numero de telemovel já se encontra registado!</string>
+    <string name="SignupFragment_onUserRegistadoFalse">Bem Vindo(a), a sua conta foi registada com sucesso!</string>
 </resources>
