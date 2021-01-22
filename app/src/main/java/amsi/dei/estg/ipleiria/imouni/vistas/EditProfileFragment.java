@@ -49,7 +49,7 @@ public class EditProfileFragment extends Fragment implements UserListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        setHasOptionsMenu(true);
+        //setHasOptionsMenu(true);
         fragmentManager = getFragmentManager();
 
         View view = inflater.inflate(R.layout.fragment_edit_profile, container, false);

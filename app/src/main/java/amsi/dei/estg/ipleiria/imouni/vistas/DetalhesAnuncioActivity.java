@@ -3,6 +3,8 @@ package amsi.dei.estg.ipleiria.imouni.vistas;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -33,9 +35,9 @@ public class DetalhesAnuncioActivity extends AppCompatActivity implements Anunci
         int id = getIntent().getIntExtra(ID, -1);
         anuncio = SingletonGestorImoUni.getInstance(getApplicationContext()).getAnuncio(id);
 
-       // etTitulo = findViewById(R.id.etTitulo);
-       // etPreco = findViewById(R.id.etDescricao);
-       // etDescricao = findViewById(R.id.etPreco);
+        etTitulo = findViewById(R.id.etTitulo);
+        etPreco = findViewById(R.id.etDescricao);
+        etDescricao = findViewById(R.id.etPreco);
 
 
         //SharedPreferences sharedPrefUser = getSharedPreferences(MenuMainActivity.PREF_INFO_USER, Context.MODE_PRIVATE);
@@ -80,7 +82,7 @@ public class DetalhesAnuncioActivity extends AppCompatActivity implements Anunci
     public boolean onCreateOptionsMenu(Menu menu) {
         if(anuncio!=null) {
             MenuInflater inflater = getMenuInflater();
-            inflater.inflate(R.menu.menu_detalhes_anuncio,menu);
+            inflater.inflate(R.menu.menu_detalhes_livro,menu);
 
             return super.onCreateOptionsMenu(menu);
         }

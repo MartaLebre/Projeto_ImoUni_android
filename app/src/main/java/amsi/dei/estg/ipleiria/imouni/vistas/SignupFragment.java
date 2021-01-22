@@ -67,13 +67,13 @@ public class SignupFragment extends Fragment implements UserListener {
             public void onClick(View v) {
                 if (SingletonGestorImoUni.isConnectedInternet(getContext())) {
 
-                    String mPrimeiroNome = primeiroNome.getText().toString();
-                    String mUltimoNome = ultimoNome.getText().toString();
-                    String mUsername = username.getText().toString();
-                    String mEmail = email.getText().toString();
+                     String mPrimeiroNome = primeiroNome.getText().toString();
+                     String mUltimoNome = ultimoNome.getText().toString();
+                     String mUsername = username.getText().toString();
+                     String mEmail = email.getText().toString();
                     String mPassword = password.getText().toString();
-                    String mNumeroTelemovel = numeroTelemovel.getText().toString();
-                    String genero = "";
+                     String mNumeroTelemovel = numeroTelemovel.getText().toString();
+                     String genero = "";
 
                     if (rbtnMasculino.isChecked()) {
                         genero = "masculino";
@@ -111,10 +111,11 @@ public class SignupFragment extends Fragment implements UserListener {
                     }
 
 
-                    utilizador = new Utilizador(mPrimeiroNome, mUltimoNome, mUsername, mEmail, mPassword, mNumeroTelemovel, genero);
+
+                    utilizador = new Utilizador(mPrimeiroNome, mUltimoNome,  mUsername, mEmail, mPassword, mNumeroTelemovel, genero);
                     SingletonGestorImoUni.getInstance(getContext()).registarUserAPI(utilizador, getContext());
 
-                } else {
+                }else{
                     Toast.makeText(getContext(), "Sem ligação à Internet!", Toast.LENGTH_LONG).show();
 
                 }
@@ -124,7 +125,6 @@ public class SignupFragment extends Fragment implements UserListener {
 
         return view;
     }
-
     private boolean isPrimeiroNomeValido(String primeiroNome) {
         if (primeiroNome == null) {
             return false;
@@ -161,7 +161,7 @@ public class SignupFragment extends Fragment implements UserListener {
 
     }
 
-    public boolean isNumeroTelemovelValido(String numeroTelemovel) {
+    public  boolean isNumeroTelemovelValido(String numeroTelemovel){
         if (numeroTelemovel == null) {
             return false;
         } else if (numeroTelemovel.length() != 9) {
@@ -169,7 +169,6 @@ public class SignupFragment extends Fragment implements UserListener {
         }
         return true;
     }
-
     @Override
     public void onUserRegistado(String response) {
         Log.e("resposta", response);
