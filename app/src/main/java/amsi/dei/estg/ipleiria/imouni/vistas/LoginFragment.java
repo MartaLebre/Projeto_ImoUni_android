@@ -87,9 +87,9 @@ public class LoginFragment extends Fragment implements UserListener {
             guardarInfoSharedPref(token, username);
             Fragment fragment = new MainFragment();
             fragmentManager.beginTransaction().replace(R.id.contentFragment, fragment).addToBackStack(null).commit();
-            Toast.makeText(getContext(), "@string/LoginFragment_onValidateLogin", Toast.LENGTH_LONG).show();
+            Toast.makeText(getContext(), "Bem Vindo!", Toast.LENGTH_LONG).show();
         } else {
-            mPassword.setError("@string/LoginFragment_onValidateLoginERROR");
+            mPassword.setError("Utilizador ou Palavra-Passe Incorretos!");
         }
     }
 
