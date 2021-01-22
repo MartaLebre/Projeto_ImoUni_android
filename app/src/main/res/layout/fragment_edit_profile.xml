@@ -103,7 +103,7 @@
                     android:layout_gravity="center"
                     android:layout_marginVertical="20dp"
                     android:paddingHorizontal="40dp"
-                    android:text="Apagar Conta"
+                    android:text="@string/editprofile_btnDel"
                     android:textSize="20sp" />
 
             </LinearLayout>
