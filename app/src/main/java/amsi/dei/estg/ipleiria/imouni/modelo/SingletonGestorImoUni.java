@@ -268,7 +268,8 @@ public class SingletonGestorImoUni {
             }
         }
 
-    public void getAllLivrosAPI(final Context context) {
+
+    public void getAllAnunciosAPI(final Context context) {
         if (!AnuncioJsonParser.isConnectionInternet(context)) {
             Toast.makeText(context, "Não tem ligação à Internet", Toast.LENGTH_LONG).show();
 
@@ -294,6 +295,9 @@ public class SingletonGestorImoUni {
             });
             volleyQueue.add(request);
         }
+    }
+    public void getAnuncioDetalheApi(final Context context) {
+
     }
 
     private void onUpdateListaAnunciosBD(Anuncio anuncio, int operacao) {
