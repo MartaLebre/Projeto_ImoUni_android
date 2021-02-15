@@ -2,8 +2,6 @@ package amsi.dei.estg.ipleiria.imouni.vistas;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,8 +12,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,7 +23,6 @@ import amsi.dei.estg.ipleiria.imouni.R;
 import amsi.dei.estg.ipleiria.imouni.listeners.AnunciosListener;
 import amsi.dei.estg.ipleiria.imouni.modelo.Anuncio;
 import amsi.dei.estg.ipleiria.imouni.modelo.SingletonGestorImoUni;
-import amsi.dei.estg.ipleiria.imouni.modelo.Utilizador;
 
 
 public class DetalhesAnuncioActivity extends AppCompatActivity implements AnunciosListener {
@@ -108,7 +103,7 @@ public class DetalhesAnuncioActivity extends AppCompatActivity implements Anunci
     public boolean onCreateOptionsMenu(Menu menu) {
         if(anuncio!=null) {
             MenuInflater inflater = getMenuInflater();
-            inflater.inflate(R.menu.menu_detalhes_livro,menu);
+            inflater.inflate(R.menu.menu_detalhes_anuncio,menu);
 
             return super.onCreateOptionsMenu(menu);
         }
