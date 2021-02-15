@@ -34,7 +34,8 @@ public class DetalhesAnuncioActivity extends AppCompatActivity implements Anunci
 
     public static final String ID = "ID";
     private Anuncio anuncio;
-    private TextView Titulo, Preco, Descricao, dataAnuncio, dataDisponibilidade;
+    private static final String mUrlWebAnuncio = "http://192.168.1.68/yii2_Projeto_ImoUni/frontend/web/anuncio/";
+    private TextView Titulo, Preco, Descricao, dataAnuncio, dataDisponibilidade, maisInformacoes;
     private ImageButton btnLigar;
     private String token;
 
@@ -44,7 +45,7 @@ public class DetalhesAnuncioActivity extends AppCompatActivity implements Anunci
         setContentView(R.layout.activity_detalhes_anuncio);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        int id = getIntent().getIntExtra(ID, -1);
+        final int id = getIntent().getIntExtra(ID, -1);
         anuncio = SingletonGestorImoUni.getInstance(getApplicationContext()).getAnuncio(id);
 
         Titulo = findViewById(R.id.tvAnuncioTitulo);
@@ -52,6 +53,7 @@ public class DetalhesAnuncioActivity extends AppCompatActivity implements Anunci
         dataAnuncio = findViewById(R.id.dataPublicacao);
         dataDisponibilidade = findViewById(R.id.dataDisponibilidade);
         Descricao = findViewById(R.id.descricao);
+        maisInformacoes = findViewById(R.id.txtMaisInformacoes);
 
         btnLigar = findViewById(R.id.imageButtonTelefonar);
 
@@ -72,8 +74,6 @@ public class DetalhesAnuncioActivity extends AppCompatActivity implements Anunci
             @Override
             public void onClick(View v) {
 
-                //Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://192.168.1.68/yii2_Projeto_ImoUni/frontend/web/"));
-                //startActivity(browserIntent);
                 if(token != null) {
                     Intent chamada = new Intent(Intent.ACTION_DIAL);
                     chamada.setData(Uri.parse("tel:" + anuncio.getNumero_telefone()));
@@ -82,6 +82,14 @@ public class DetalhesAnuncioActivity extends AppCompatActivity implements Anunci
                     Toast.makeText(getApplicationContext(), "Impossível realizar a chamada faça login para conseguir realizar a chamada!", Toast.LENGTH_LONG).show();
                 }
 
+            }
+        });
+
+        maisInformacoes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse( mUrlWebAnuncio + id));
+                startActivity(browserIntent);
             }
         });
 

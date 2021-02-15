@@ -3,6 +3,7 @@ package amsi.dei.estg.ipleiria.imouni.vistas;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,8 +27,6 @@ import amsi.dei.estg.ipleiria.imouni.modelo.Utilizador;
 public class EditProfileFragment extends Fragment implements UserListener {
 
     EditText username;
-    EditText primeiroNome;
-    EditText ultimoNome;
     EditText email;
     EditText numeroTelemovel;
     EditText password;
@@ -62,7 +61,6 @@ public class EditProfileFragment extends Fragment implements UserListener {
         SharedPreferences sharedPreferencesUser = getActivity().getSharedPreferences(MenuMainActivity.PREF_INFO_USER, Context.MODE_PRIVATE);
         String token = sharedPreferencesUser.getString(MenuMainActivity.USERNAME, null);
 
-        //SingletonGestorImoUni.getInstance(getContext()).getUserAPI(getContext(), token);
 
         Button button = view.findViewById(R.id.btnAtualizar);
         button.setOnClickListener(new View.OnClickListener() {
@@ -96,6 +94,11 @@ public class EditProfileFragment extends Fragment implements UserListener {
                     SharedPreferences sharedPreferencesUser = getActivity().getSharedPreferences(MenuMainActivity.PREF_INFO_USER, Context.MODE_PRIVATE);
                     String token = sharedPreferencesUser.getString(MenuMainActivity.USERNAME, null);
                     SingletonGestorImoUni.getInstance(getContext()).apagarContaAPI(token, getContext());
+
+                    SharedPreferences.Editor editor = sharedPreferencesUser.edit();
+
+                    editor.clear().apply();
+
                 }
             }
         });
@@ -105,7 +108,25 @@ public class EditProfileFragment extends Fragment implements UserListener {
 
     @Override
     public void onUserRegistado(String response) {
+        Log.e("resposta", response);
 
+        switch (response) {
+            case "0":
+                Log.e("eee", "1111");
+                email.setError("Este email já se encontra registado!");
+                break;
+            case "1":
+                username.setError("Este nome de utilizador já se encontra registado!");
+                break;
+            case "2":
+                numeroTelemovel.setError("Este numero de telemovel já se encontra registado!");
+                break;
+            case "false":
+                Fragment fragment = new LoginFragment();
+                fragmentManager.beginTransaction().replace(R.id.contentFragment, fragment).addToBackStack(null).commit();
+                Toast.makeText(getContext(), "Bem Vindo(a), a sua conta foi registada com sucesso!", Toast.LENGTH_LONG).show();
+                break;
+        }
     }
 
     @Override

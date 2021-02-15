@@ -49,6 +49,16 @@ public class LoginFragment extends Fragment implements UserListener {
                     String username = mUsername.getText().toString();
                     String password = mPassword.getText().toString();
 
+                    if (!isUsernameValido(username)) {
+                        mUsername.setError("Username Inválido");
+                        return;
+                    }
+
+                    if (!isPasswordValida(password)) {
+                        mPassword.setError("Palavra Passe Inválida");
+                        return;
+                    }
+
         SingletonGestorImoUni.getInstance(getContext()).loginUserAPI(username, password, getContext());
     }
 
@@ -64,6 +74,20 @@ public class LoginFragment extends Fragment implements UserListener {
         });
 return view;
 }
+    private boolean isUsernameValido(String username) {
+        if (username == null) {
+            return true;
+        }
+        return username.length() > 0;
+
+    }
+    private boolean isPasswordValida(String password) {
+        if (password == null) {
+            return true;
+        }
+        return password.length() > 5;
+
+    }
 
     @Override
     public void onUserRegistado(String response) {

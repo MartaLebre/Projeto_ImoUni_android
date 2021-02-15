@@ -113,7 +113,7 @@ public class MenuMainActivity extends AppCompatActivity implements NavigationVie
 
                 }else{
 
-                    Toast.makeText(getApplicationContext(), "Não tem login efectuado para terminar sesão!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Não tem login efectuado para terminar sessão!", Toast.LENGTH_LONG).show();
 
                 }
             default:

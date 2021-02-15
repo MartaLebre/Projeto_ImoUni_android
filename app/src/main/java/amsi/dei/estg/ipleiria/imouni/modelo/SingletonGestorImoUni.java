@@ -37,7 +37,6 @@ public class SingletonGestorImoUni {
     private static final String mUrlAPIAnuncios = "http://192.168.1.68:8080/anuncios";
     private static final String mUrlAPIEditarRegistoUser = "http://192.168.1.68:8080/user/editar";
     private static final String mUrlAPIApagarUser = "http://192.168.1.68:8080/user/apagaruser";
-    //private static final String mUrlAPIAnunciosDetalhes = "http://192.168.1.68:8080/anuncios/detalhes";
 
     public UserListener userListener;
 
@@ -114,14 +113,7 @@ public class SingletonGestorImoUni {
         Anuncio livroAux = getAnuncio(livro.getId());
         if(livroAux != null)
             anunciosBD.editarAnuncioBD(livroAux);
-            /*
-            if(livrosBD.editarLivroBD(livroAux)) {
-                livroAux.setTitulo(livro.getTitulo());
-                livroAux.setAutor(livro.getAutor());
-                livroAux.setCapa(livro.getCapa());
-                livroAux.setSerie(livro.getSerie());
-                livroAux.setAno(livro.getAno());
-              */
+
     }
 
     /*********** Métodos de acesso à API - Utilizador ***********/
@@ -300,35 +292,6 @@ public class SingletonGestorImoUni {
             volleyQueue.add(request);
         }
     }
-    /*
-    public void getAnuncioDetalheApi(int id,final Context context) {
-        if (!AnuncioJsonParser.isConnectionInternet(context)) {
-            Toast.makeText(context, "Não tem ligação à Internet", Toast.LENGTH_LONG).show();
-
-            if (anunciosListener != null) {
-                anunciosListener.onRefreshListaAnuncios(anunciosBD.getAllAnunciosBD());
-            }
-        } else {
-            JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, mUrlAPIAnunciosDetalhes + "/" + id, null, new Response.Listener<JSONArray>() {
-                @Override
-                public void onResponse(JSONArray response) {
-                    anuncios = AnuncioJsonParser.parserJsonAnuncios(response);
-                    adicionarAnunciosBD(anuncios);
-
-                    if (anunciosListener != null) {
-                        anunciosListener.onRefreshListaAnuncios(anuncios);
-                    }
-                }
-            }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    Toast.makeText(context, error.getMessage(), Toast.LENGTH_LONG).show();
-                }
-            });
-            volleyQueue.add(request);
-        }
-    }
-*/
     private void onUpdateListaAnunciosBD(Anuncio anuncio, int operacao) {
         switch (operacao) {
             case ADICIONAR_BD:

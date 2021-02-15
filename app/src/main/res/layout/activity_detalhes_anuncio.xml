@@ -111,6 +111,7 @@
                     android:textSize="20sp" />
 
 
+
                 <!-- Telemovel -->
                 <TextView
                     android:id="@+id/tvTelefone"
@@ -132,6 +133,17 @@
                     android:layout_height="wrap_content"
                     android:backgroundTint="#F3ECEC"
                     app:srcCompat="@android:drawable/ic_menu_call" />
+                <View
+                    style="@style/DividerHorizontal"
+                    android:layout_marginBottom="5dp" />
+                <TextView
+                    android:id="@+id/txtMaisInformacoes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Mais Informações do anúncio"
+                    android:textSize="15sp"
+                    android:gravity="center"
+                    android:textStyle="bold|italic" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

@@ -102,7 +102,7 @@ public class SignupFragment extends Fragment implements UserListener {
                     }
 
                     if (!isPasswordValida(mPassword)) {
-                        password.setError("Palavra Passe Inválida, é necessário ter mais de 8 caractéres");
+                        password.setError("Palavra Passe Inválida, é necessário ter mais de 5 caractéres");
                         return;
                     }
                     if (!isNumeroTelemovelValido(mNumeroTelemovel)) {
@@ -157,7 +157,7 @@ public class SignupFragment extends Fragment implements UserListener {
         if (password == null) {
             return true;
         }
-        return password.length() > 8;
+        return password.length() > 5;
 
     }
 
