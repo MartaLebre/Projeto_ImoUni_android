@@ -1,12 +1,12 @@
 package amsi.dei.estg.ipleiria.imouni.modelo;
 
 public class Anuncio {
-    private int id, id_proprietario, idcasa, preco, despesas_inc;
+    private int id, id_proprietario, idcasa, preco, despesas_inc,numero_Telefone;
     private String titulo, data_criacao, data_disponibilidade, descricao;
     //o atributo autoIncrementedId é static: comum a todas as instâncias/objetos da classe
     //private static int autoIncrementedId = 1;
 
-    public Anuncio(int id, int id_proprietario, int idcasa, String titulo, int preco, String data_criacao, String data_disponibilidade, int despesas_inc, String descricao) {
+    public Anuncio(int id, int id_proprietario, int idcasa, String titulo, int preco, String data_criacao, String data_disponibilidade, int despesas_inc, String descricao, int numero_Telefone) {
         this.id = id;
         this.id_proprietario = id_proprietario;
         this.idcasa = idcasa;
@@ -16,6 +16,7 @@ public class Anuncio {
         this.data_disponibilidade = data_disponibilidade;
         this.despesas_inc = despesas_inc;
         this.descricao = descricao;
+        this.numero_Telefone = numero_Telefone;
 
 
     }
@@ -87,6 +88,14 @@ public class Anuncio {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public int getNumero_telefone() {
+        return numero_Telefone;
+    }
+
+    public void setNumero_telefone(int numero_telefone) {
+        this.numero_Telefone = numero_telefone;
     }
 
 }

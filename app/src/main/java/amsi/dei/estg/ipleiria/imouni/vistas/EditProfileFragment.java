@@ -74,7 +74,7 @@ public class EditProfileFragment extends Fragment implements UserListener {
                     String mNumeroTelemovel = numeroTelemovel.getText().toString();
 
 
-                    utilizador = new Utilizador(null, null,  null, null, mPassword, mNumeroTelemovel, null);
+                    utilizador = new Utilizador(null, null,  mPassword, null, null, mNumeroTelemovel, null,1);
                     SharedPreferences sharedPreferencesUser = getActivity().getSharedPreferences(MenuMainActivity.PREF_INFO_USER, Context.MODE_PRIVATE);
                     String token = sharedPreferencesUser.getString(MenuMainActivity.USERNAME, null);
                     SingletonGestorImoUni.getInstance(getContext()).editarUtilizadorAPI(utilizador, getContext(), mPassword,token);
@@ -92,7 +92,7 @@ public class EditProfileFragment extends Fragment implements UserListener {
                     String mNumeroTelemovel = numeroTelemovel.getText().toString();
 
 
-                    utilizador = new Utilizador(null, null,  null, null, mPassword, mNumeroTelemovel, null);
+                    utilizador = new Utilizador(null, null,  mPassword, null, null , mNumeroTelemovel, null,1);
                     SharedPreferences sharedPreferencesUser = getActivity().getSharedPreferences(MenuMainActivity.PREF_INFO_USER, Context.MODE_PRIVATE);
                     String token = sharedPreferencesUser.getString(MenuMainActivity.USERNAME, null);
                     SingletonGestorImoUni.getInstance(getContext()).apagarContaAPI(token, getContext());
@@ -125,7 +125,7 @@ public class EditProfileFragment extends Fragment implements UserListener {
         switch (resposta) {
             case "null":
                 Fragment fragment = new SignupFragment();
-                fragmentManager.beginTransaction().replace(R.id.contentFragment, fragment).addToBackStack(null).commit();
+                fragmentManager.beginTransaction().replace(R.id.contentFragment, fragment).commit();
                 Toast.makeText(getContext(), "A sua conta foi apagada com sucesso!", Toast.LENGTH_LONG).show();
                 break;
         }

@@ -71,7 +71,7 @@ public class SignupFragment extends Fragment implements UserListener {
                      String mUltimoNome = ultimoNome.getText().toString();
                      String mUsername = username.getText().toString();
                      String mEmail = email.getText().toString();
-                    String mPassword = password.getText().toString();
+                     String mPassword = password.getText().toString();
                      String mNumeroTelemovel = numeroTelemovel.getText().toString();
                      String genero = "";
 
@@ -111,8 +111,8 @@ public class SignupFragment extends Fragment implements UserListener {
                     }
 
 
-
-                    utilizador = new Utilizador(mPrimeiroNome, mUltimoNome,  mUsername, mEmail, mPassword, mNumeroTelemovel, genero);
+                    int tipo = 1;
+                    utilizador = new Utilizador( mUsername, mEmail, mPassword,mPrimeiroNome, mUltimoNome, mNumeroTelemovel, genero, tipo);
                     SingletonGestorImoUni.getInstance(getContext()).registarUserAPI(utilizador, getContext());
 
                 }else{

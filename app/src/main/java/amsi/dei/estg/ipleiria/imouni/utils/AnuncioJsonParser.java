@@ -21,7 +21,7 @@ public class AnuncioJsonParser {
         try {
             for (int i = 0; i < response.length(); i++) {
                 JSONObject anuncio = (JSONObject) response.get(i);
-                anuncios.add(new Anuncio(anuncio.getInt("id"), anuncio.getInt("id_proprietario"), anuncio.getInt("id_casa"), anuncio.getString("titulo"), anuncio.getInt("preco"), anuncio.getString("data_criacao"),anuncio.getString("data_disponibilidade"), anuncio.getInt("despesas_inc"),anuncio.getString("descricao")));
+                anuncios.add(new Anuncio(anuncio.getInt("id"), anuncio.getInt("id_proprietario"), anuncio.getInt("id_casa"), anuncio.getString("titulo"), anuncio.getInt("preco"), anuncio.getString("data_criacao"),anuncio.getString("data_disponibilidade"), anuncio.getInt("despesas_inc"),anuncio.getString("descricao"),anuncio.getInt("numero_telemovel")));
             }
         } catch(JSONException e) {
             e.printStackTrace();
@@ -34,7 +34,7 @@ public class AnuncioJsonParser {
        Anuncio auxLivro = null;
        try {
            JSONObject anuncio = new JSONObject(response);
-           auxLivro = new Anuncio(anuncio.getInt("id"), anuncio.getInt("id_proprietario"), anuncio.getInt("id_casa"), anuncio.getString("titulo"), anuncio.getInt("preco"), anuncio.getString("data_criacao"),anuncio.getString("data_disponibilidade"), anuncio.getInt("despesas_inc"),anuncio.getString("descricao"));
+           auxLivro = new Anuncio(anuncio.getInt("id"), anuncio.getInt("id_proprietario"), anuncio.getInt("id_casa"), anuncio.getString("titulo"), anuncio.getInt("preco"), anuncio.getString("data_criacao"),anuncio.getString("data_disponibilidade"), anuncio.getInt("despesas_inc"),anuncio.getString("descricao"),anuncio.getInt("numero_telemovel"));
 
        } catch (JSONException e) {
            e.printStackTrace();

@@ -20,4 +20,12 @@
             />
         </menu>
     </item>
+    <item android:title="Terminar Sesão">
+        <menu>
+            <item
+                android:id="@+id/nav_TerminarSessao"
+                android:title="Terminar Sessão"
+                />
+        </menu>
+    </item>
 </menu>

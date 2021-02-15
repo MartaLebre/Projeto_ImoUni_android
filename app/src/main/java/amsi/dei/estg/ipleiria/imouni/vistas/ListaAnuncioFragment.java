@@ -28,7 +28,7 @@ public class ListaAnuncioFragment extends Fragment implements SwipeRefreshLayout
 
     private ListView lvListaAnuncios;
     private ArrayList<Anuncio> listaAnuncios;
-    private static final int MOSTRAR = 2;
+    private static final int MOSTRAR = 3;
     private SwipeRefreshLayout swipeRefreshLayout;
 
 
@@ -42,7 +42,7 @@ public class ListaAnuncioFragment extends Fragment implements SwipeRefreshLayout
         View view = inflater.inflate(R.layout.fragment_lista_anuncios, container, false);
         setHasOptionsMenu(true);
 
-        lvListaAnuncios = view.findViewById(R.id.lvListaLivros);
+        lvListaAnuncios = view.findViewById(R.id.lvListaAnuncios);
 
 
 
@@ -52,7 +52,7 @@ public class ListaAnuncioFragment extends Fragment implements SwipeRefreshLayout
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(getContext(), DetalhesAnuncioActivity.class);
-                intent.putExtra("id" , (int)id);
+                intent.putExtra("ID" , (int)id);
                 //startActivity(intent);
                 startActivityForResult(intent,MOSTRAR);
             }
@@ -72,7 +72,7 @@ public class ListaAnuncioFragment extends Fragment implements SwipeRefreshLayout
         if (resultCode == Activity.RESULT_OK) {
             switch (requestCode) {
                 case MOSTRAR:
-                    listaAnuncios = SingletonGestorImoUni.getInstance(getContext()).getAnuncioDetalheApi();
+                    listaAnuncios = SingletonGestorImoUni.getInstance(getContext()).getAnunciosDB();
                     lvListaAnuncios.setAdapter(new ListaAnuncioAdaptador(getContext(), listaAnuncios));
                     Toast.makeText(getContext(), "Detalhes Anúncio", Toast.LENGTH_LONG).show();
                     //Snackbar.make(getView(),"Livro Adicionado com sucesso", Snackbar.LENGTH_LONG).show();

@@ -73,9 +73,8 @@ public class AnuncioFragment extends Fragment {
         if(anuncios.size() > 0){
             Anuncio l = anuncios.get(0);
             tvTitulo.setText(l.getTitulo());
-            tvPreco.setText(String.valueOf(l.getPreco()));
+            tvPreco.setText(String.valueOf(l.getPreco()) + "€");
             tvDataPublicado.setText(l.getData_criacao());
-            tvDescricao.setText(l.getDescricao());
 
         }
     }
@@ -88,7 +87,6 @@ public class AnuncioFragment extends Fragment {
         tvTitulo = view.findViewById(R.id.txtTitulo);
         tvPreco = view.findViewById(R.id.txtPreco);
         tvDataPublicado = view.findViewById(R.id.txtDataPublicacao);
-        tvDescricao = view.findViewById(R.id.txxDescricao);
 
         carregarAnuncios();
         return view;

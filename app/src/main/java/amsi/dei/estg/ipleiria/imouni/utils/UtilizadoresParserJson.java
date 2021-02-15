@@ -18,16 +18,18 @@ public class UtilizadoresParserJson {
             for (int i = 0; i < response.length(); i++) {
                 JSONObject utilizador = (JSONObject) response.get(i);
 
-                String PrimeiroNome = utilizador.getString("primeiro_nome");
-                String UltimoNome = utilizador.getString("ultimo_nome");
                 String Username = utilizador.getString("username");
                 String Email = utilizador.getString("email");
                 String Password = utilizador.getString("password");
+                String PrimeiroNome = utilizador.getString("primeiro_nome");
+                String UltimoNome = utilizador.getString("ultimo_nome");
                 String NumeroTelemovel = utilizador.getString("numero_telemovel");
                 String Genero = utilizador.getString("genero");
+                int Tipo = utilizador.getInt("tipo");
 
 
-                Utilizador auxUtilizador = new Utilizador( PrimeiroNome, UltimoNome, Username,Email, Password, NumeroTelemovel,Genero);
+
+                Utilizador auxUtilizador = new Utilizador(Username,Email, Password, PrimeiroNome, UltimoNome, NumeroTelemovel, Genero,Tipo);
                 utilizadores.add(auxUtilizador);
             }
         } catch (JSONException e) {
@@ -41,15 +43,16 @@ public class UtilizadoresParserJson {
 
         try {
             JSONObject utilizador = new JSONObject(response);
-            String PrimeiroNome = utilizador.getString("primeiro_nome");
-            String UltimoNome = utilizador.getString("ultimo_nome");
             String Username = utilizador.getString("username");
             String Email = utilizador.getString("email");
             String Password = utilizador.getString("password");
+            String PrimeiroNome = utilizador.getString("primeiro_nome");
+            String UltimoNome = utilizador.getString("ultimo_nome");
             String NumeroTelemovel = utilizador.getString("numero_telemovel");
             String Genero = utilizador.getString("genero");
+            int Tipo = utilizador.getInt("tipo");
 
-            auxUtilizador = new Utilizador( PrimeiroNome, UltimoNome,null, null, null, NumeroTelemovel,Genero);
+            auxUtilizador = new Utilizador( null, null, null,PrimeiroNome, UltimoNome, NumeroTelemovel,Genero,Tipo);
         } catch (JSONException e) {
             e.printStackTrace();
         }

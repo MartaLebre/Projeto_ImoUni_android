@@ -37,6 +37,7 @@ public class SingletonGestorImoUni {
     private static final String mUrlAPIAnuncios = "http://192.168.1.68:8080/anuncios";
     private static final String mUrlAPIEditarRegistoUser = "http://192.168.1.68:8080/user/editar";
     private static final String mUrlAPIApagarUser = "http://192.168.1.68:8080/user/apagaruser";
+    //private static final String mUrlAPIAnunciosDetalhes = "http://192.168.1.68:8080/anuncios/detalhes";
 
     public UserListener userListener;
 
@@ -150,6 +151,7 @@ public class SingletonGestorImoUni {
                 params.put("password", utilizador.getPassword());
                 params.put("numero_telemovel", utilizador.getNumeroTelemovel());
                 params.put("genero", utilizador.getGenero());
+                params.put("tipo", String.valueOf(utilizador.getTipo()));
 
                 return params;
             }
@@ -200,9 +202,11 @@ public class SingletonGestorImoUni {
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<String, String>();
 
+                params.put("password", utilizador.getPassword());
+
                 params.put("numero_telemovel", utilizador.getNumeroTelemovel());
 
-                params.put("password", utilizador.getPassword());
+                //params.put("tipo", String.valueOf(utilizador.getTipo()));
 
 
                 return params;
@@ -296,10 +300,35 @@ public class SingletonGestorImoUni {
             volleyQueue.add(request);
         }
     }
-    public void getAnuncioDetalheApi(final Context context) {
+    /*
+    public void getAnuncioDetalheApi(int id,final Context context) {
+        if (!AnuncioJsonParser.isConnectionInternet(context)) {
+            Toast.makeText(context, "Não tem ligação à Internet", Toast.LENGTH_LONG).show();
 
+            if (anunciosListener != null) {
+                anunciosListener.onRefreshListaAnuncios(anunciosBD.getAllAnunciosBD());
+            }
+        } else {
+            JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, mUrlAPIAnunciosDetalhes + "/" + id, null, new Response.Listener<JSONArray>() {
+                @Override
+                public void onResponse(JSONArray response) {
+                    anuncios = AnuncioJsonParser.parserJsonAnuncios(response);
+                    adicionarAnunciosBD(anuncios);
+
+                    if (anunciosListener != null) {
+                        anunciosListener.onRefreshListaAnuncios(anuncios);
+                    }
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Toast.makeText(context, error.getMessage(), Toast.LENGTH_LONG).show();
+                }
+            });
+            volleyQueue.add(request);
+        }
     }
-
+*/
     private void onUpdateListaAnunciosBD(Anuncio anuncio, int operacao) {
         switch (operacao) {
             case ADICIONAR_BD:

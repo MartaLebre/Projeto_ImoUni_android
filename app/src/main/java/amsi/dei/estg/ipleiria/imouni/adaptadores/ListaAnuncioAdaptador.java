@@ -71,14 +71,14 @@ public class ListaAnuncioAdaptador extends BaseAdapter {
             tvTitulo = view.findViewById(R.id.txtTitulo);
             tvPreco = view.findViewById(R.id.txtDataPublicacao);
             tvPublicado = view.findViewById(R.id.txtPreco);
-            tvDescricao = view.findViewById(R.id.txxDescricao);
+
         }
 
         public void update(Anuncio anuncio){
             tvTitulo.setText(anuncio.getTitulo());
-            tvPreco.setText(String.valueOf(anuncio.getPreco()));
+            tvPreco.setText(String.valueOf(anuncio.getPreco()) + "€");
             tvPublicado.setText(anuncio.getData_criacao());
-            tvDescricao.setText(anuncio.getDescricao());
+
 
         }
     }

@@ -60,12 +60,12 @@
     <string name="anuncio_infoTitulo">Sobre o anuncio</string>
     <string name="anuncio_proprietario">Proprietario: </string>
     <string name="anuncio_preco">Preço: </string>
-    <string name="anuncio_despesas">Despesas incluidas</string>
-    <string name="anuncio_dataDisponibilidade"> quartos disponíveis</string>
+    <string name="anuncio_despesas">Despesas incluídas</string>
+    <string name="anuncio_dataDisponibilidade"> Data de disponibilidade: </string>
     <string name="anuncio_dataAnuncio">Data do anuncio: </string>
 
     <!-- Propriedade -->
-    <string name="anuncio_descricaoTitulo">Sobre a propriedade</string>
+    <string name="anuncio_descricaoTitulo">Sobre a propriedade:</string>
 
     <!-- Casa -->
     <string name="anuncio_casaTitulo">Características da casa</string>

@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="amsi.dei.estg.ipleiria.imouni">
 
+    <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -14,6 +15,7 @@
         android:usesCleartextTraffic="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".vistas.DetalhesAnuncioActivity"></activity>
         <activity
             android:name=".vistas.MenuMainActivity"
             android:theme="@style/AppTheme.NoActionBar" >

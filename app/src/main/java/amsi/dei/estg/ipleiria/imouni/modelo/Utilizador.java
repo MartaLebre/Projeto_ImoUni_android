@@ -4,13 +4,13 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Utilizador {
-    private int id;
+    private int id,tipo;
     private String username, email, password, primeiroNome, ultimoNome, numeroTelemovel, genero;
 
     private Pattern pattern;
     private Matcher matcher;
 
-    public Utilizador(String primeiroNome, String ultimoNome, String username, String email, String password, String numeroTelemovel, String genero) {
+    public Utilizador( String username, String email, String password, String primeiroNome, String ultimoNome,String numeroTelemovel, String genero,int tipo) {
         this.username = username;
         this.email = email;
         this.password = password;
@@ -18,7 +18,7 @@ public class Utilizador {
         this.ultimoNome = ultimoNome;
         this.numeroTelemovel = numeroTelemovel;
         this.genero = genero;
-
+        this.tipo = tipo;
 
     }
 
@@ -85,5 +85,11 @@ public class Utilizador {
     public void setGenero(String genero) {
         this.genero = genero;
     }
+    public int getTipo() {
+        return tipo;
+    }
 
+    public void setTipo(int tipo) {
+        this.tipo = tipo;
+    }
 }

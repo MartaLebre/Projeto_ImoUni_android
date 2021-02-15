@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
@@ -95,6 +96,25 @@ public class MenuMainActivity extends AppCompatActivity implements NavigationVie
                     fragment = new LoginFragment();
                     setTitle(menuItem.getTitle());
                     break;
+                }
+            case R.id.nav_TerminarSessao:
+                if(token != null) {
+
+                    SharedPreferences sharedPreferencesUser = getSharedPreferences(MenuMainActivity.PREF_INFO_USER, Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPreferencesUser.edit();
+
+                    editor.clear().apply();
+
+                    fragment = new MainFragment();
+                    fragmentManager.beginTransaction().replace(R.id.contentFragment, fragment).addToBackStack(null).commit();
+
+                    Toast.makeText(getApplicationContext(), "Terminou a sessão com sucesso!", Toast.LENGTH_LONG).show();
+
+
+                }else{
+
+                    Toast.makeText(getApplicationContext(), "Não tem login efectuado para terminar sesão!", Toast.LENGTH_LONG).show();
+
                 }
             default:
                 fragment = new MainFragment();

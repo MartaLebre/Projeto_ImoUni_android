@@ -23,6 +23,7 @@ public class AnuncioDBHelper extends SQLiteOpenHelper {
     private static final String DISPONIBILIDADE_ANUNCIO = "data_disponibilidade";
     private static final String DESPESAS_ANUNCIO = "despesas_inc";
     private static final String DESCRICAO_ANUNCIO = "descricao";
+    private static final String NUMERO_TELEMOVEL = "numero_telemovel";
 
     private final SQLiteDatabase db;
 
@@ -43,7 +44,8 @@ public class AnuncioDBHelper extends SQLiteOpenHelper {
                 CRIACAO_ANUNCIO + " TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP, " +
                 DISPONIBILIDADE_ANUNCIO + " TEXT NOT NULL, " +
                 DESPESAS_ANUNCIO + " TINYINT NOT NULL, " +
-                DESCRICAO_ANUNCIO + " TEXT NOT NULL );";
+                DESCRICAO_ANUNCIO + " TEXT NOT NULL, " +
+                NUMERO_TELEMOVEL + " INT  );";
 
         db.execSQL(sqlCreateTableAnuncio);
     }
@@ -72,6 +74,7 @@ public class AnuncioDBHelper extends SQLiteOpenHelper {
         values.put(DISPONIBILIDADE_ANUNCIO, anuncio.getData_disponibilidade());
         values.put(DESPESAS_ANUNCIO, anuncio.getDespesas_inc());
         values.put(DESCRICAO_ANUNCIO, anuncio.getDescricao());
+        values.put(NUMERO_TELEMOVEL, anuncio.getNumero_telefone());
 
         this.db.insert(TABLE_ANUNCIOS, null, values);
 
@@ -112,7 +115,7 @@ public class AnuncioDBHelper extends SQLiteOpenHelper {
      */
     public ArrayList<Anuncio> getAllAnunciosBD(){
         ArrayList<Anuncio> anuncios = new ArrayList<>();
-        Cursor cursor = this.db.query(TABLE_ANUNCIOS, new String[]{ID_ANUNCIO, ID_PROPRIETARIO, ID_CASA, TITULO_ANUNCIO, PRECO_ANUNCIO, CRIACAO_ANUNCIO,DISPONIBILIDADE_ANUNCIO,DESPESAS_ANUNCIO,DESCRICAO_ANUNCIO},
+        Cursor cursor = this.db.query(TABLE_ANUNCIOS, new String[]{ID_ANUNCIO, ID_PROPRIETARIO, ID_CASA, TITULO_ANUNCIO, PRECO_ANUNCIO, CRIACAO_ANUNCIO,DISPONIBILIDADE_ANUNCIO,DESPESAS_ANUNCIO,DESCRICAO_ANUNCIO,NUMERO_TELEMOVEL},
                 null, null, null, null, null);
 
         if(cursor.moveToFirst()){
@@ -125,7 +128,8 @@ public class AnuncioDBHelper extends SQLiteOpenHelper {
                         cursor.getString(5),
                         cursor.getString(6),
                         cursor.getInt(7),
-                        cursor.getString(8));
+                        cursor.getString(8),
+                        cursor.getInt(9));
                 anuncios.add(auxAuncio);
             }while(cursor.moveToNext());
         }
